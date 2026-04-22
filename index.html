@@ -47,12 +47,20 @@
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
         .section-header h2 span { color: var(--gold); }
+        .section-header p { color: var(--text-muted); }
 
         /* PORTFÓLIO DE PROJETOS */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .project-card { background: var(--bg-panel); border-radius: 8px; border: 1px solid #222; overflow: hidden; transition: all 0.3s; }
+        .project-card { display: block; background: var(--bg-panel); border-radius: 8px; border: 1px solid #222; overflow: hidden; transition: all 0.3s; cursor: pointer; }
         .project-card:hover { border-color: var(--neon-green); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 255, 127, 0.1); }
-        .project-img { height: 180px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #333; border-bottom: 1px solid #222; }
+        
+        .project-img { height: 180px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; letter-spacing: 2px; font-size: 1.2rem; text-shadow: 0 2px 5px rgba(0,0,0,0.8); border-bottom: 1px solid #222; }
+        
+        /* Imagens de fundo para os projetos com filtro escuro */
+        .bg-votofrio { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=600&q=80') center/cover; }
+        .bg-sosingles { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80') center/cover; }
+        .bg-autorg4 { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80') center/cover; }
+
         .project-info { padding: 25px; }
         .project-info h3 { color: var(--neon-green); margin-bottom: 10px; font-size: 1.4rem; }
         .project-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
@@ -65,12 +73,17 @@
         .service-icon { font-size: 2rem; color: var(--neon-green); margin-bottom: 20px; }
         .tag-cnae { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); font-size: 0.7rem; padding: 4px 8px; border-radius: 2px; letter-spacing: 1px; }
 
-        /* PLANOS */
+        /* PLANOS (Características Restauradas) */
         .pricing-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .plan-card { background: var(--bg-card); padding: 40px; border-radius: 8px; border: 1px solid #333; text-align: center; display: flex; flex-direction: column; transition: all 0.3s; }
         .plan-card:hover { border-color: var(--neon-green); transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 127, 0.1); }
         .plan-name { font-size: 1.2rem; color: var(--gold); margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
         .plan-price { font-size: 2.5rem; font-weight: bold; margin-bottom: 20px; }
+        .plan-price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+        
+        .plan-features { list-style: none; margin-bottom: 30px; text-align: left; }
+        .plan-features li { margin-bottom: 15px; font-size: 0.95rem; color: var(--text-muted); border-bottom: 1px solid #222; padding-bottom: 10px; }
+        
         .plan-btn { margin-top: auto; display: block; padding: 12px; border: 1px solid var(--neon-green); color: var(--neon-green); font-weight: bold; border-radius: 4px; transition: all 0.3s; }
         .plan-card:hover .plan-btn { background: var(--neon-green); color: #000; }
 
@@ -84,6 +97,7 @@
             .hero { grid-template-columns: 1fr; text-align: center; padding-top: 140px; }
             .hero-content h1 { font-size: 2.5rem; }
             .hero-image { height: 200px; }
+            .plan-card:hover { transform: scale(1); }
         }
     </style>
 </head>
@@ -149,32 +163,32 @@
         </div>
         <div class="portfolio-grid">
             
-            <div class="project-card">
-                <div class="project-img">VOTOFRIO</div>
+            <a href="https://www.votofrio.com.br/" target="_blank" class="project-card">
+                <div class="project-img bg-votofrio">VOTOFRIO</div>
                 <div class="project-info">
                     <span class="project-tag">Site Institucional</span>
                     <h3>Votofrio Ar Condicionado</h3>
                     <p>Desenvolvimento completo, configuração de servidores e entrega final de website corporativo.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="project-card">
-                <div class="project-img">SOS ENGLISH</div>
+            <a href="https://www.sosinglesus.com.br/" target="_blank" class="project-card">
+                <div class="project-img bg-sosingles">SOS ENGLISH</div>
                 <div class="project-info">
                     <span class="project-tag">Plataforma de Ensino</span>
                     <h3>SOS English</h3>
                     <p>Interface digital para suporte ao ensino de idiomas e presença online estratégica.</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="project-card">
-                <div class="project-img">AUTO RG4</div>
+            <a href="https://www.autorg4.com.br/" target="_blank" class="project-card">
+                <div class="project-img bg-autorg4">AUTO RG4</div>
                 <div class="project-info">
                     <span class="project-tag">Presença Digital & Ads</span>
                     <h3>Auto RG4</h3>
                     <p>Desenvolvimento de site e integração com campanhas de marketing e automações de vendas.</p>
                 </div>
-            </div>
+            </a>
 
         </div>
     </section>
@@ -187,11 +201,23 @@
             <div class="plan-card">
                 <div class="plan-name">Sob Demanda</div>
                 <div class="plan-price">Orçamento<span>/avulso</span></div>
+                <ul class="plan-features">
+                    <li>Atendimento presencial ou remoto</li>
+                    <li>Cobrança por hora técnica</li>
+                    <li>Formatação e diagnósticos</li>
+                    <li>Desenvolvimento de sites</li>
+                </ul>
                 <a href="https://wa.me/5515997571977" class="plan-btn">Solicitar Orçamento</a>
             </div>
             <div class="plan-card">
                 <div class="plan-name">Suporte Mensal N3</div>
                 <div class="plan-price">Customizado<span>/mês</span></div>
+                <ul class="plan-features">
+                    <li style="color: var(--neon-green); font-weight: bold;">Prioridade Total SLA</li>
+                    <li>Manutenção preventiva mensal</li>
+                    <li>Gestão de Backups e Redes</li>
+                    <li>Consultoria tecnológica contínua</li>
+                </ul>
                 <a href="https://wa.me/5515997571977" class="plan-btn">Contratar Plano</a>
             </div>
         </div>
