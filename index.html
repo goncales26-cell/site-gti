@@ -10,8 +10,8 @@
     <style>
         /* CSS Roots - Padronização Auto RG4 + FG */
         :root {
-            --primary: #00ff7f; /* Verde Neon TI */
-            --secondary: #d4af37; /* Dourado Premium */
+            --primary: #00ff7f;
+            --secondary: #d4af37;
             --dark-bg: #050505;
             --panel-bg: #111111;
             --text-main: #ffffff;
@@ -35,9 +35,9 @@
         .nav-menu a { font-size: 0.9rem; font-weight: 500; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* HERO - VÍDEO RESTAURADO */
+        /* HERO - VÍDEO APROVADO */
         .hero-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.3; /* Transparência do vídeo */ }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.3; }
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 20px; }
         .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 span { color: var(--primary); }
@@ -51,7 +51,7 @@
         .section-title h2 { font-size: 2.5rem; color: var(--secondary); }
         .section-title h2 span { color: var(--text-main); }
 
-        /* SOBRE - FOTO RESTAURADA */
+        /* SOBRE */
         .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
         .about-visual { border: 2px solid var(--secondary); border-radius: 8px; background: var(--panel-bg); overflow: hidden; max-width: 380px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
         .about-img { width: 100%; height: 100%; object-fit: contain; }
@@ -60,7 +60,7 @@
         .badge-container { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
         .badge { background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0, 255, 127, 0.2); }
 
-        /* SERVIÇOS EM GRADE - NOVO */
+        /* SERVIÇOS EM GRADE */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
@@ -68,14 +68,24 @@
         .service-card h4 { margin-bottom: 15px; font-size: 1.4rem; color: var(--secondary); }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* CONTATO & MAPA - NOVO */
+        /* PROJETOS - NOVA SESSÃO */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { background: var(--panel-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
+        .project-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .project-img { width: 100%; height: 200px; background: #1a1a1a; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #222; }
+        .project-img i { font-size: 4rem; color: #333; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-info { padding: 25px; }
+        .project-info h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+        .project-info p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* CONTATO & MAPA CORRIGIDO */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
         .contact-form { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; color: var(--secondary); font-size: 0.9rem; }
         .form-group input, .form-group textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: #fff; border-radius: 5px; outline: none; }
         .form-group input:focus { border-color: var(--primary); }
-        
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
         /* CHATBOT INTERFACE */
@@ -113,12 +123,13 @@
                 <img src="./logo_fg.png" alt="Flávio Gonçales">
                 <div class="brand-text">
                     <span class="brand-title">65.611.420 FLAVIO GONCALES</span>
-                    <span class="brand-subtitle">TECNOLOGIA & AUDIOVISUAL CORPORATIVO</span>
+                    <span class="brand-subtitle">TECNOLOGIA & AUDIOVISUAL</span>
                 </div>
             </div>
             <ul class="nav-menu">
                 <li><a href="#sobre">Especialista</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -165,7 +176,7 @@
                 <div class="service-card">
                     <i class="bi bi-camera-reels"></i>
                     <h4>Pós-Produção</h4>
-                    <p>Edição cinematográfica, motion graphics e finalização de alta qualidade para seus vídeos e Instagram.</p>
+                    <p>Edição cinematográfica, motion graphics e finalização de alta qualidade para seus vídeos.</p>
                 </div>
                 <div class="service-card">
                     <i class="bi bi-globe"></i>
@@ -175,39 +186,74 @@
                 <div class="service-card">
                     <i class="bi bi-cpu"></i>
                     <h4>Infraestrutura de TI</h4>
-                    <p>Suporte especializado N3 para servidores, redes críticas e manutenção de hardware crítico.</p>
-                </div>
-                <div class="service-card">
-                    <i class="bi bi-mortarboard"></i>
-                    <h4>Treinamentos</h4>
-                    <p>Capacitação de equipes em ferramentas digitais e tecnologia para aumento de produtividade.</p>
+                    <p>Suporte especializado N3 para servidores, redes críticas e manutenção de hardware.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contato">
+    <section id="projetos">
         <div class="section-title">
-            <h2>Fale Conosco</h2>
+            <h2>Meus <span>Projetos</span></h2>
         </div>
-        <div class="contact-grid">
-            <div class="contact-form">
-                <div class="form-group">
-                    <label>Seu Nome</label>
-                    <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./projeto_site.jpg" alt="Projeto Web" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="bi bi-laptop" style="display:none;"></i>
                 </div>
-                <div class="form-group">
-                    <label>WhatsApp</label>
-                    <input type="text" id="form-tel" placeholder="(15) 99999-9999">
+                <div class="project-info">
+                    <h4>Site Institucional - Auto RG4</h4>
+                    <p>Desenvolvimento web focado em UX, conversão de leads e integração com automações.</p>
                 </div>
-                <div class="form-group">
-                    <label>Descreva seu projeto</label>
-                    <textarea id="form-msg" rows="4" placeholder="Como podemos te ajudar?"></textarea>
-                </div>
-                <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
             </div>
-            <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d14631.393478954752!2d-47.4578918!3d-23.5388373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f5106596b613%3A0x7d6b8b548d423b09!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./projeto_video.jpg" alt="Projeto Audiovisual" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="bi bi-film" style="display:none;"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Pós-Produção Audiovisual</h4>
+                    <p>Edição dinâmica e tratamento de cor cinematográfico para campanhas de Instagram.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./projeto_ti.jpg" alt="Projeto TI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="bi bi-hdd-network" style="display:none;"></i>
+                </div>
+                <div class="project-info">
+                    <h4>Infraestrutura e Servidores</h4>
+                    <p>Implementação de rede corporativa e suporte N3 garantindo 99.9% de uptime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="section-title">
+                <h2>Fale Conosco</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>Seu Nome</label>
+                        <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" id="form-tel" placeholder="(15) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label>Descreva seu projeto</label>
+                        <textarea id="form-msg" rows="4" placeholder="Como podemos te ajudar?"></textarea>
+                    </div>
+                    <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117185.80783321588!2d-47.52554749454157!3d-23.56619098717596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58ab8b8577383%3A0x63339097782bcfbc!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713800000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -236,7 +282,6 @@
     <a href="https://wa.me/5515997571977" class="btn-float btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // MANTENDO A URL DO MAKE QUE FUNCIONOU
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
         function toggleChat() {
@@ -251,7 +296,6 @@
 
             if(!msg) return;
 
-            // Add user message
             chatBox.innerHTML += `<div class="message user">${msg}</div>`;
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -265,7 +309,6 @@
 
                 if(response.ok) {
                     const data = await response.text();
-                    // Filtra o "Accepted" caso o Response não esteja pronto
                     if(data !== "Accepted") {
                         chatBox.innerHTML += `<div class="message bot">${data}</div>`;
                     }
