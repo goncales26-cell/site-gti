@@ -49,7 +49,7 @@
         .trust-grid { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; opacity: 0.5; flex-wrap: wrap; gap: 20px; }
         .trust-grid span { font-weight: bold; font-size: 0.8rem; letter-spacing: 3px; color: var(--text-light); }
 
-        /* SEÇÃO SOBRE (AJUSTADA PARA ENQUADRAMENTO DA FOTO) */
+        /* SEÇÃO SOBRE (AJUSTADA PARA MOSTRAR O CORPO INTEIRO) */
         .about-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         
         .about-visual { 
@@ -60,22 +60,17 @@
             display: flex; 
             justify-content: center; 
             align-items: center;
-            /* Altura fixa para garantir o formato 'quadrado' no desktop */
             height: 500px; 
-            overflow: hidden; /* Garante que nada escape da moldura */
+            overflow: hidden; 
         }
         
         .about-img { 
             width: 100%; 
-            height: 100%; /* Preenche a altura do container dourado */
-            
-            /* SOLUÇÃO TÉCNICA DO ENQUADRAMENTO */
-            object-fit: cover; /* Preenche o espaço cortando o excesso */
-            object-position: top; /* Foca no topo da foto (sua cabeça) impedindo o corte */
-            
+            height: 100%; 
+            /* O SEGREDO AQUI: 'contain' força a imagem inteira a aparecer sem cortar */
+            object-fit: contain; 
             border-radius: 4px; 
             display: block; 
-            border: 1px solid #222; 
         }
 
         .about-text h2 { font-size: 2.5rem; margin-bottom: 25px; }
@@ -84,27 +79,40 @@
         .about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
         .badge { background: rgba(0, 255, 127, 0.1); color: var(--neon-green); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(0, 255, 127, 0.2); }
 
+        /* DIFERENCIAIS TÉCNICOS */
+        .tech-differentials { background: var(--bg-panel); padding: 60px 20px; }
+        .tech-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .tech-grid h3 { color: var(--neon-green); margin-bottom: 10px; }
+        .tech-grid p { font-size: 0.9rem; color: var(--text-muted); }
+
         /* NOSSA ATUAÇÃO */
         section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.8rem; margin-bottom: 15px; }
         .grid-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-card { background: var(--bg-panel); padding: 45px 30px; border-radius: 8px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; }
+        .service-card { background: var(--bg-panel); padding: 45px 30px; border-radius: 8px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .service-card:hover { border-color: var(--neon-green); transform: translateY(-10px); }
         .service-icon { font-size: 2.2rem; color: var(--neon-green); margin-bottom: 20px; font-weight: bold; }
-        
+        .service-card h3 { margin-bottom: 15px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .tag-cnae { margin-top: auto; display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); font-size: 0.7rem; padding: 4px 8px; border-radius: 2px; letter-spacing: 1px; }
+
         /* PORTFÓLIO */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .project-card { display: block; background: var(--bg-panel); border-radius: 8px; border: 1px solid #222; overflow: hidden; transition: 0.3s; }
-        .project-img { height: 200px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; background-size: cover; background-position: center; }
+        .project-card:hover { border-color: var(--neon-green); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 255, 127, 0.1); }
+        .project-img { height: 200px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; background-size: cover; background-position: center; border-bottom: 1px solid #222; }
         .bg-votofrio { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=600&q=80'); }
         .bg-sosingles { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80'); }
         .bg-autorg4 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80'); }
+        .project-info { padding: 25px; }
+        .project-info h3 { color: var(--neon-green); margin-bottom: 10px; font-size: 1.4rem; }
+        .project-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
 
         /* PLANOS */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
         .plan-card { background: var(--bg-card); padding: 45px; border-radius: 8px; border: 1px solid #333; text-align: center; transition: 0.3s; display: flex; flex-direction: column; }
-        .plan-card:hover { border-color: var(--neon-green); transform: scale(1.05); }
+        .plan-card:hover { border-color: var(--neon-green); transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 127, 0.1); }
         .plan-features { list-style: none; margin: 30px 0; text-align: left; }
         .plan-features li { margin-bottom: 15px; color: var(--text-muted); border-bottom: 1px solid #222; padding-bottom: 8px; }
         .plan-btn { margin-top: auto; display: block; padding: 15px; border: 1px solid var(--neon-green); color: var(--neon-green); font-weight: bold; border-radius: 4px; transition: 0.3s; }
@@ -116,13 +124,12 @@
 
         footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #111; font-size: 0.85rem; color: var(--text-muted); }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 992px) {
-            .hero, .about-section, .grid-services { grid-template-columns: 1fr; text-align: center; }
+            .hero, .about-section, .grid-services, .tech-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-image { height: 300px; }
             .brand img { height: 70px; }
-            
-            /* Ajuste responsivo para a foto no mobile */
-            .about-visual { height: 350px; }
+            .about-visual { height: 400px; } /* Ajusta a altura da foto no celular */
         }
     </style>
 </head>
@@ -186,22 +193,22 @@
         </div>
     </section>
 
-    <section style="background: var(--bg-panel); padding: 60px 20px;">
-        <div class="grid-services" style="max-width: 1100px; margin: 0 auto;">
-            <div style="text-align: center;">
-                <h3 style="color: var(--neon-green);">Proteção Ativa</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Monitoramento contínuo contra ameaças e intrusões cibernéticas.</p>
+    <div class="tech-differentials">
+        <div class="tech-grid">
+            <div>
+                <h3>Proteção Ativa</h3>
+                <p>Monitoramento contínuo contra ameaças e intrusões cibernéticas.</p>
             </div>
-            <div style="text-align: center;">
-                <h3 style="color: var(--neon-green);">Backup Resiliente</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Estratégias de recuperação de desastres com cópias de sombra e nuvem.</p>
+            <div>
+                <h3>Backup Resiliente</h3>
+                <p>Estratégias de recuperação de desastres com cópias de sombra e nuvem.</p>
             </div>
-            <div style="text-align: center;">
-                <h3 style="color: var(--neon-green);">SLA de Resposta</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Prioridade máxima em incidentes que afetam a operação da empresa.</p>
+            <div>
+                <h3>SLA de Resposta</h3>
+                <p>Prioridade máxima em incidentes que afetam a operação da empresa.</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <section id="servicos">
         <div class="section-header"><h2>Nossa <span>Atuação</span></h2></div>
@@ -250,7 +257,7 @@
         <div class="pricing-grid">
             <div class="plan-card">
                 <div class="plan-name" style="color: var(--gold);">SOB DEMANDA</div>
-                <div class="plan-price">Orçamento<span>/avulso</span></div>
+                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 20px;">Orçamento<span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/avulso</span></div>
                 <ul class="plan-features">
                     <li>Atendimento remoto ou presencial</li>
                     <li>Configurações de rede pontuais</li>
@@ -261,7 +268,7 @@
             </div>
             <div class="plan-card">
                 <div class="plan-name" style="color: var(--gold);">SUPORTE MENSAL N3</div>
-                <div class="plan-price">Customizado<span>/mês</span></div>
+                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 20px;">Customizado<span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/mês</span></div>
                 <ul class="plan-features">
                     <li style="color: var(--neon-green); font-weight: bold;">Prioridade Total SLA</li>
                     <li>Gestão de Backups e Firewalls</li>
@@ -273,9 +280,7 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5515997571977" class="whatsapp-float" target="_blank">
-        W
-    </a>
+    <a href="https://wa.me/5515997571977" class="whatsapp-float" target="_blank">W</a>
 
     <footer>
         <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
