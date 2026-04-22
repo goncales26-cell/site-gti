@@ -3,212 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>65.611.420 FLAVIO GONCALES | Audiovisual e Tecnologia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>65.611.420 FLAVIO GONCALES | Tecnologia e Audiovisual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
         :root {
-            --neon-green: #00ff7f;
-            --gold: #d4af37;
-            --bg-dark: #050505;
-            --bg-panel: #111111;
-            --text-light: #ffffff;
-            --text-muted: #a0aabf;
+            --primary: #00ff7f; /* Verde Neon TI */
+            --secondary: #d4af37; /* Dourado Premium */
+            --dark-bg: #0a0a0a;
+            --panel-bg: #151515;
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
+        
         /* HEADER */
-        header { background-color: rgba(5, 5, 5, 0.95); border-bottom: 1px solid rgba(0, 255, 127, 0.2); position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
-        .navbar { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .brand { display: flex; align-items: center; gap: 15px; }
-        .brand img { height: 75px; border-radius: 50%; border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(0, 255, 127, 0.2); }
-        .brand-title { font-weight: bold; font-size: 1.1rem; }
-        .brand-subtitle { color: var(--gold); font-size: 0.7rem; letter-spacing: 1px; display: block; }
+        header { background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(8px); }
+        .navbar { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand img { height: 60px; border-radius: 50%; border: 2px solid var(--primary); }
+        .brand-name { font-weight: 800; font-size: 1.2rem; line-height: 1; }
+        .brand-name span { color: var(--secondary); font-size: 0.7rem; display: block; margin-top: 4px; letter-spacing: 1px; }
+        
+        .nav-menu { display: flex; gap: 25px; list-style: none; }
+        .nav-menu a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--primary); }
 
-        /* HERO SECTION */
-        .hero { max-width: 1200px; margin: 140px auto 40px; padding: 40px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .hero-image { background: #000; border: 1px solid #222; height: 350px; border-radius: 8px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
-        .hero-image video { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-        .floating-logo { position: absolute; width: 45%; z-index: 2; filter: drop-shadow(0 0 10px var(--neon-green)); }
+        /* HERO */
+        .hero { padding: 180px 20px 100px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 255, 127, 0.4); }
 
-        /* SEÇÃO SOBRE (FOTO REDUZIDA - CORPO INTEIRO) */
-        .about-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-visual { border: 2px solid var(--gold); border-radius: 8px; background: var(--bg-panel); overflow: hidden; height: 380px; max-width: 320px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
-        .about-img { width: 100%; height: 100%; object-fit: contain; }
-        .badge { background: rgba(0, 255, 127, 0.1); color: var(--neon-green); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0, 255, 127, 0.2); margin-right: 5px; }
+        /* SERVIÇOS */
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--secondary); }
+        .services-grid { max-width: 1200px; margin: 0 auto; padding: 80px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; position: relative; overflow: hidden; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
 
-        /* NOSSA ATUAÇÃO */
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
-        .service-card { background: var(--bg-panel); padding: 40px 20px; border-radius: 8px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .service-card:hover { border-color: var(--neon-green); transform: translateY(-10px); box-shadow: 0 0 20px rgba(0, 255, 127, 0.2); }
-        .service-icon { font-size: 2.5rem; color: var(--neon-green); margin-bottom: 15px; }
-        .tag-cnae { margin-top: auto; color: var(--gold); font-size: 0.7rem; padding-top: 15px; font-weight: bold; }
+        /* CONTATO & MAPA */
+        .contact-container { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+        .contact-form { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--secondary); font-size: 0.9rem; }
+        .form-group input, .form-group textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: #fff; border-radius: 5px; outline: none; }
+        .form-group input:focus { border-color: var(--primary); }
+        
+        .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
-        /* CHAT INTERFACE */
-        #chat-container { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 450px; background: var(--bg-panel); border: 1px solid var(--gold); border-radius: 12px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        #chat-header { background: var(--gold); color: #000; padding: 15px; font-weight: bold; border-radius: 11px 11px 0 0; display: flex; justify-content: space-between; }
-        #chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
-        .msg { padding: 8px 12px; border-radius: 8px; max-width: 80%; line-height: 1.4; }
-        .msg.user { background: var(--neon-green); color: #000; align-self: flex-end; }
-        .msg.bot { background: #222; color: #fff; align-self: flex-start; border: 1px solid #333; }
-        #chat-input-area { border-top: 1px solid #333; padding: 10px; display: flex; gap: 5px; }
-        #chat-input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 8px; border-radius: 4px; outline: none; }
-        #send-btn { background: var(--neon-green); border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        /* CHATBOT */
+        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+        .chat-header { background: var(--secondary); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 14px 14px 0 0; }
+        .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: thin; }
+        .message { padding: 10px 15px; border-radius: 10px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; white-space: pre-line; }
+        .message.bot { background: #252525; align-self: flex-start; border-left: 3px solid var(--primary); }
+        .message.user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 500; }
+        .chat-input { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; }
+        .chat-input input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 5px; outline: none; }
+        
+        /* FLOATING BUTTONS */
+        .btn-float { position: fixed; right: 30px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; transition: 0.3s; z-index: 1001; }
+        .btn-ai { bottom: 105px; background: var(--secondary); color: #000; }
+        .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; }
+        .btn-float:hover { transform: scale(1.1); }
 
-        /* FLOAT BUTTONS */
-        .float-btn { position: fixed; right: 30px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1001; transition: 0.3s; cursor: pointer; }
-        .whatsapp-float { bottom: 30px; background: #25d366; color: #fff; }
-        .ai-float { bottom: 105px; background: var(--gold); color: #000; }
-        .float-btn:hover { transform: scale(1.1); }
+        footer { background: #050505; padding: 60px 20px; text-align: center; border-top: 1px solid #111; }
+        footer p { color: var(--text-muted); font-size: 0.8rem; }
 
-        footer { padding: 40px; text-align: center; border-top: 1px solid #111; font-size: 0.8rem; color: var(--text-muted); }
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            #chat-widget { width: 90%; right: 5%; bottom: 90px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="navbar">
+        <nav class="navbar">
             <div class="brand">
-                <img src="./logo_fg.png" alt="Logo">
-                <div class="brand-text">
-                    <span class="brand-title">65.611.420 FLAVIO GONCALES</span>
-                    <span class="brand-subtitle">Audiovisual e Tecnologia Corporativa</span>
+                <img src="./logo_fg.png" alt="Flávio Gonçales">
+                <div class="brand-name">
+                    65.611.420 FLAVIO GONCALES
+                    <span>TECNOLOGIA & AUDIOVISUAL</span>
                 </div>
             </div>
-            <ul class="nav-links" style="list-style:none; display:flex; gap:20px;">
-                <li><a href="#servicos" style="color:#fff; font-size:0.9rem">Serviços</a></li>
-                <li><a href="#sobre" style="color:#fff; font-size:0.9rem">Especialista</a></li>
+            <ul class="nav-menu">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Expertise em <span>Audiovisual</span> e Tecnologia N3.</h1>
-            <p>Pós-produção cinematográfica e infraestrutura de TI de alta performance para o seu negócio.</p>
-            <a href="https://wa.me/5515997571977" style="background:var(--neon-green); color:#000; padding:12px 25px; border-radius:4px; font-weight:bold; display:inline-block; margin-top:15px;">Iniciar Atendimento</a>
+        <div>
+            <h1>Sua Empresa no <span>Nível Máximo</span> de Tecnologia.</h1>
+            <p>Especialista N3 em Infraestrutura de TI e Pós-produção Audiovisual cinematográfica. Soluções inteligentes com MBA em IA.</p>
+            <a href="#contato" class="cta-button">Solicitar Orçamento</a>
         </div>
-        <div class="hero-image">
-            <video autoplay loop muted playsinline><source src="./video_circuito.mp4" type="video/mp4"></video>
-            <img src="./logo_fg.png" class="floating-logo" alt="Logo">
-        </div>
-    </section>
-
-    <section class="about-section" id="sobre">
-        <div class="about-visual">
-            <img src="./flavio_pro.png" alt="Flávio Gonçales" class="about-img">
-        </div>
-        <div class="about-text">
-            <h2>Tecnologia e <span>Criatividade Estratégica.</span></h2>
-            <p><strong>Flávio Gonçales</strong> une 15 anos de experiência técnica N3 com a visão inovadora da IA aplicada ao Audiovisual. Auditor ISO 9001 e Especialista em Cloud Computing.</p>
-            <div>
-                <span class="badge">MBA em IA</span>
-                <span class="badge">Analista N3</span>
-                <span class="badge">Pós-Produção</span>
-            </div>
+        <div style="text-align: right;">
+            <img src="./logo_fg.png" alt="Logo" style="width: 80%; opacity: 0.2; filter: grayscale(1);">
         </div>
     </section>
 
-    <section id="servicos" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
-        <h2 style="text-align: center;">Nossa <span>Atuação</span></h2>
-        <div class="grid-services">
+    <section id="servicos">
+        <div class="section-title">
+            <h2>Nossa Atuação</h2>
+        </div>
+        <div class="services-grid">
             <div class="service-card">
-                <i class="bi bi-camera-reels service-icon"></i>
-                <h3>Pós-Produção</h3>
-                <p>Edição e finalização profissional de vídeos corporativos.</p>
-                <span class="tag-cnae">CNAE: 59.12-0-99</span>
-            </div>
-            <div class="service-card">
-                <i class="bi bi-code-slash service-icon"></i>
+                <i class="bi bi-globe"></i>
                 <h3>Criação de Sites</h3>
-                <p>Desenvolvimento web focado em conversão e velocidade.</p>
-                <span class="tag-cnae">CNAE: 73.19-0-02</span>
+                <p>Desenvolvimento de portais institucionais e landing pages focadas em conversão e velocidade.</p>
             </div>
             <div class="service-card">
-                <i class="bi bi-tools service-icon"></i>
-                <h3>Manutenção</h3>
-                <p>Hardware, Servidores e infraestrutura de redes críticas.</p>
-                <span class="tag-cnae">CNAE: 95.11-8-00</span>
+                <i class="bi bi-camera-reels"></i>
+                <h3>Pós-Produção</h3>
+                <p>Edição de vídeo cinematográfica, motion graphics e gestão profissional de Instagram.</p>
             </div>
             <div class="service-card">
-                <i class="bi bi-display service-icon"></i>
-                <h3>Treinamento</h3>
-                <p>Capacitação técnica em informática e produtividade digital.</p>
-                <span class="tag-cnae">CNAE: 85.99-6-03</span>
+                <i class="bi bi-cpu"></i>
+                <h3>Infraestrutura TI</h3>
+                <p>Suporte N3 para servidores, redes críticas e segurança de dados com auditoria ISO 9001.</p>
+            </div>
+            <div class="service-card">
+                <i class="bi bi-mortarboard"></i>
+                <h3>Treinamentos</h3>
+                <p>Capacitação técnica para equipes em novas tecnologias e ferramentas digitais.</p>
             </div>
         </div>
     </section>
 
-    <div id="chat-container">
-        <div id="chat-header">
-            <span>Assistente Gonçales IA</span>
-            <span style="cursor:pointer" onclick="toggleChat()">×</span>
+    <section id="contato">
+        <div class="section-title">
+            <h2>Fale Conosco</h2>
         </div>
-        <div id="chat-messages">
-            <div class="msg bot">Olá! Sou o assistente virtual do Flávio. Como posso ajudar sua empresa hoje?</div>
+        <div class="contact-container">
+            <div class="contact-form">
+                <div class="form-group">
+                    <label>Seu Nome</label>
+                    <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="text" id="form-tel" placeholder="(15) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label>Como podemos ajudar?</label>
+                    <textarea id="form-msg" rows="4" placeholder="Descreva seu projeto..."></textarea>
+                </div>
+                <button class="cta-button" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+            </div>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58544.76713753733!2d-47.48784834863281!3d-23.543360099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f51f98d9c1b3%3A0x7d605151525b6a78!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-        <div id="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-            <button id="send-btn" onclick="sendMessage()">Enviar</button>
+    </section>
+
+    <footer>
+        <img src="./logo_fg.png" alt="Logo" style="height: 40px; margin-bottom: 20px; opacity: 0.5;">
+        <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
+        <p>Votorantim - SP | flaviogoncales26@gmail.com</p>
+    </footer>
+
+    <div id="chat-widget">
+        <div class="chat-header">
+            <span>Assistente Especialista</span>
+            <span style="cursor:pointer" onclick="toggleChat()"><i class="bi bi-xl"></i></span>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="message bot">Olá! Sou o assistente do Flávio Gonçales. Em que posso ajudar seu negócio hoje?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua dúvida...">
+            <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px; cursor:pointer"><i class="bi bi-send-fill"></i></button>
         </div>
     </div>
 
-    <div class="float-btn ai-float" onclick="toggleChat()"><i class="bi bi-robot"></i></div>
-    <a href="https://wa.me/5515997571977" class="float-btn whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-    <footer>
-        <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
-        <p>flaviogoncales26@gmail.com | Votorantim, SP</p>
-    </footer>
+    <div class="btn-float btn-ai" onclick="toggleChat()"><i class="bi bi-robot"></i></div>
+    <a href="https://wa.me/5515997571977" class="btn-float btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // URL ATUALIZADA DO WEBHOOK DO MAKE
-        const webhookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
+        const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
         function toggleChat() {
-            const chat = document.getElementById('chat-container');
+            const chat = document.getElementById('chat-widget');
             chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        async function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const messages = document.getElementById('chat-messages');
-            const text = input.value.trim();
+        async function sendChatMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const msg = input.value.trim();
 
-            if (!text) return;
+            if(!msg) return;
 
-            messages.innerHTML += `<div class="msg user">${text}</div>`;
-            input.value = "";
-            messages.scrollTop = messages.scrollHeight;
+            // Add user message
+            chatBox.innerHTML += `<div class="message user">${msg}</div>`;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
 
             try {
-                const response = await fetch(webhookUrl, {
+                const response = await fetch(webHookUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ message: msg })
                 });
 
-                if (response.ok) {
-                    const botText = await response.text();
-                    // Filtra o retorno padrão "Accepted" caso o Webhook Response ainda não esteja pronto
-                    if(botText !== "Accepted") {
-                        messages.innerHTML += `<div class="msg bot">${botText}</div>`;
+                if(response.ok) {
+                    const data = await response.text();
+                    if(data !== "Accepted") {
+                        chatBox.innerHTML += `<div class="message bot">${data}</div>`;
                     }
                 } else {
-                    messages.innerHTML += `<div class="msg bot">Conexão instável. Tente novamente.</div>`;
+                    chatBox.innerHTML += `<div class="message bot">Desculpe, tive um problema de conexão. Pode repetir?</div>`;
                 }
-            } catch (e) {
-                messages.innerHTML += `<div class="msg bot">Erro ao contatar o assistente.</div>`;
+            } catch (error) {
+                chatBox.innerHTML += `<div class="message bot">Erro ao contatar servidor.</div>`;
             }
-            messages.scrollTop = messages.scrollHeight;
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        document.getElementById('chat-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
+        document.getElementById('user-input').addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') sendChatMessage();
         });
     </script>
 </body>
