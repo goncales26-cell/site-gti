@@ -49,10 +49,35 @@
         .trust-grid { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; opacity: 0.5; flex-wrap: wrap; gap: 20px; }
         .trust-grid span { font-weight: bold; font-size: 0.8rem; letter-spacing: 3px; color: var(--text-light); }
 
-        /* SEÇÃO SOBRE (QUEM É O FLÁVIO) */
+        /* SEÇÃO SOBRE (AJUSTADA PARA ENQUADRAMENTO DA FOTO) */
         .about-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-visual { border: 2px solid var(--gold); padding: 10px; border-radius: 8px; position: relative; background: var(--bg-panel); display: flex; justify-content: center; align-items: center; }
-        .about-img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 4px; display: block; border: 1px solid #222; }
+        
+        .about-visual { 
+            border: 2px solid var(--gold); 
+            padding: 10px; 
+            border-radius: 8px; 
+            background: var(--bg-panel); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            /* Altura fixa para garantir o formato 'quadrado' no desktop */
+            height: 500px; 
+            overflow: hidden; /* Garante que nada escape da moldura */
+        }
+        
+        .about-img { 
+            width: 100%; 
+            height: 100%; /* Preenche a altura do container dourado */
+            
+            /* SOLUÇÃO TÉCNICA DO ENQUADRAMENTO */
+            object-fit: cover; /* Preenche o espaço cortando o excesso */
+            object-position: top; /* Foca no topo da foto (sua cabeça) impedindo o corte */
+            
+            border-radius: 4px; 
+            display: block; 
+            border: 1px solid #222; 
+        }
+
         .about-text h2 { font-size: 2.5rem; margin-bottom: 25px; }
         .about-text h2 span { color: var(--gold); }
         .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; }
@@ -95,6 +120,9 @@
             .hero, .about-section, .grid-services { grid-template-columns: 1fr; text-align: center; }
             .hero-image { height: 300px; }
             .brand img { height: 70px; }
+            
+            /* Ajuste responsivo para a foto no mobile */
+            .about-visual { height: 350px; }
         }
     </style>
 </head>
@@ -143,7 +171,7 @@
 
     <section class="about-section" id="sobre">
         <div class="about-visual">
-            <img src="./flavio_pro.png" alt="Flávio Gonçales - Especialista de TI" class="about-img">
+            <img src="./flavio_pro.png" alt="Flávio Gonçales - Especialista de TI N3" class="about-img">
         </div>
         <div class="about-text">
             <h2>Especialista N3 em <span>Infraestrutura.</span></h2>
