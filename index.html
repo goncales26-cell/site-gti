@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>65.611.420 FLAVIO GONCALES | Audiovisual e Tecnologia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <style>
         :root {
             --neon-green: #00ff7f;
@@ -49,36 +52,41 @@
         .trust-grid { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; opacity: 0.5; flex-wrap: wrap; gap: 20px; }
         .trust-grid span { font-weight: bold; font-size: 0.8rem; letter-spacing: 3px; color: var(--text-light); }
 
-        /* SEÇÃO SOBRE (COM FOTO REDUZIDA E AJUSTADA) */
+        /* SEÇÃO SOBRE */
         .about-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-visual { 
-            border: 2px solid var(--gold); 
-            padding: 0; 
-            border-radius: 8px; 
-            background: var(--bg-panel); 
-            overflow: hidden; 
-            height: 380px; 
-            max-width: 320px; 
-            margin: 0 auto; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .about-visual { border: 2px solid var(--gold); padding: 0; border-radius: 8px; background: var(--bg-panel); overflow: hidden; height: 380px; max-width: 320px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
         .about-img { width: 100%; height: 100%; object-fit: contain; border-radius: 4px; display: block; }
-        
         .about-text h2 { font-size: 2.5rem; margin-bottom: 25px; }
         .about-text h2 span { color: var(--gold); }
         .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; }
         .about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
         .badge { background: rgba(0, 255, 127, 0.1); color: var(--neon-green); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; border: 1px solid rgba(0, 255, 127, 0.2); }
 
-        /* NOSSA ATUAÇÃO (ALINHADA AOS CNAEs) */
+        /* NOSSA ATUAÇÃO - CORREÇÃO DE EVIDÊNCIA */
         section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card { background: var(--bg-panel); padding: 45px 30px; border-radius: 8px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .service-card:hover { border-color: var(--neon-green); transform: translateY(-10px); }
-        .service-icon { font-size: 2.2rem; color: var(--neon-green); margin-bottom: 20px; font-weight: bold; }
+        
+        .service-card { 
+            background: var(--bg-panel); 
+            padding: 45px 30px; 
+            border-radius: 8px; 
+            border: 1px solid #222; 
+            transition: 0.3s; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        /* Efeito de evidência para todos os cards */
+        .service-card:hover { 
+            border-color: var(--neon-green); 
+            transform: translateY(-10px); 
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
+        }
+        
+        .service-icon { font-size: 2.5rem; color: var(--neon-green); margin-bottom: 20px; }
         .tag-cnae { margin-top: auto; display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); font-size: 0.7rem; padding: 4px 8px; border-radius: 2px; letter-spacing: 1px; }
 
         /* PORTFÓLIO */
@@ -90,8 +98,25 @@
         .bg-sosingles { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80'); }
         .bg-autorg4 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=80'); }
 
-        /* WHATSAPP FLUTUANTE */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1001; transition: 0.3s; font-weight: bold; }
+        /* WHATSAPP FLUTUANTE COM ÍCONE REAL */
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #25d366; 
+            color: #fff; 
+            width: 65px; 
+            height: 65px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 35px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+            z-index: 1001; 
+            transition: 0.3s; 
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
 
         footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #111; font-size: 0.85rem; color: var(--text-muted); }
 
@@ -166,29 +191,29 @@
         <div class="section-header"><h2>Nossa <span>Atuação</span></h2></div>
         <div class="grid-services">
             
-            <div class="service-card" style="border-color: var(--neon-green);">
-                <div class="service-icon">[ AV ]</div>
+            <div class="service-card">
+                <div class="service-icon"><i class="bi bi-camera-reels"></i></div>
                 <h3>Pós-Produção Audiovisual</h3>
                 <p>Edição avançada de vídeos corporativos, efeitos visuais e finalização para televisão e mídias digitais.</p>
                 <span class="tag-cnae">CNAE: 59.12-0-99 (Principal)</span>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">[ WEB ]</div>
+                <div class="service-icon"><i class="bi bi-code-slash"></i></div>
                 <h3>Criação de Sites</h3>
                 <p>Desenvolvimento de sites institucionais e sistemas focados em conversão e velocidade.</p>
                 <span class="tag-cnae">CNAE: 73.19-0-02 (Promoção)</span>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">[ HW ]</div>
+                <div class="service-icon"><i class="bi bi-tools"></i></div>
                 <h3>Manutenção de Hardware</h3>
                 <p>Reparação especializada de computadores e infraestrutura de redes estruturadas.</p>
                 <span class="tag-cnae">CNAE: 95.11-8-00</span>
             </div>
 
             <div class="service-card">
-                <div class="service-icon">[ EDU ]</div>
+                <div class="service-icon"><i class="bi bi-display"></i></div>
                 <h3>Treinamento de Equipes</h3>
                 <p>Capacitação especializada em informática e ferramentas digitais para produtividade corporativa.</p>
                 <span class="tag-cnae">CNAE: 85.99-6-03</span>
@@ -215,7 +240,9 @@
         </div>
     </section>
 
-    <a href="https://wa.me/5515997571977" class="whatsapp-float" target="_blank">W</a>
+    <a href="https://wa.me/5515997571977" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
         <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
