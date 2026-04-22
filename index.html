@@ -3,54 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>65.611.420 FLAVIO GONCALES | Tecnologia e Audiovisual</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>65.611.420 FLAVIO GONCALES | Audiovisual e Tecnologia Corporativa N3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
+        /* CSS Roots - Padronização Auto RG4 + FG */
         :root {
             --primary: #00ff7f; /* Verde Neon TI */
             --secondary: #d4af37; /* Dourado Premium */
-            --dark-bg: #0a0a0a;
-            --panel-bg: #151515;
+            --dark-bg: #050505;
+            --panel-bg: #111111;
             --text-main: #ffffff;
-            --text-muted: #b0b0b0;
+            --text-muted: #a0aabf;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
         /* HEADER */
-        header { background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(8px); }
-        .navbar { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .brand { display: flex; align-items: center; gap: 12px; }
-        .brand img { height: 60px; border-radius: 50%; border: 2px solid var(--primary); }
-        .brand-name { font-weight: 800; font-size: 1.2rem; line-height: 1; }
-        .brand-name span { color: var(--secondary); font-size: 0.7rem; display: block; margin-top: 4px; letter-spacing: 1px; }
+        header { background-color: rgba(5, 5, 5, 0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .navbar { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand img { height: 75px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(0, 255, 127, 0.2); }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-title { font-weight: 800; font-size: 1.2rem; }
+        .brand-subtitle { color: var(--secondary); font-size: 0.7rem; letter-spacing: 1px; }
         
-        .nav-menu { display: flex; gap: 25px; list-style: none; }
-        .nav-menu a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        .nav-menu { display: flex; gap: 20px; list-style: none; }
+        .nav-menu a { font-size: 0.9rem; font-weight: 500; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* HERO */
-        .hero { padding: 180px 20px 100px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        /* HERO - VÍDEO RESTAURADO */
+        .hero-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.3; /* Transparência do vídeo */ }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 20px; }
         .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
-        .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
+        .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
         .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 255, 127, 0.4); }
 
-        /* SERVIÇOS */
+        /* PADRONIZAÇÃO DE SEÇÕES */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.5rem; color: var(--secondary); }
-        .services-grid { max-width: 1200px; margin: 0 auto; padding: 80px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; position: relative; overflow: hidden; }
-        .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .service-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .section-title h2 span { color: var(--text-main); }
 
-        /* CONTATO & MAPA */
-        .contact-container { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+        /* SOBRE - FOTO RESTAURADA */
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+        .about-visual { border: 2px solid var(--secondary); border-radius: 8px; background: var(--panel-bg); overflow: hidden; max-width: 380px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
+        .about-img { width: 100%; height: 100%; object-fit: contain; }
+        .about-text h3 { font-size: 2rem; margin-bottom: 20px; }
+        .about-text h3 span { color: var(--primary); }
+        .badge-container { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .badge { background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0, 255, 127, 0.2); }
+
+        /* SERVIÇOS EM GRADE - NOVO */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .service-card h4 { margin-bottom: 15px; font-size: 1.4rem; color: var(--secondary); }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* CONTATO & MAPA - NOVO */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
         .contact-form { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; color: var(--secondary); font-size: 0.9rem; }
@@ -59,8 +78,8 @@
         
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
-        /* CHATBOT */
-        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+        /* CHATBOT INTERFACE */
+        #chat-widget { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 480px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
         .chat-header { background: var(--secondary); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 14px 14px 0 0; }
         .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: thin; }
         .message { padding: 10px 15px; border-radius: 10px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; white-space: pre-line; }
@@ -71,17 +90,17 @@
         
         /* FLOATING BUTTONS */
         .btn-float { position: fixed; right: 30px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; transition: 0.3s; z-index: 1001; }
-        .btn-ai { bottom: 105px; background: var(--secondary); color: #000; }
-        .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; }
+        .btn-ai { bottom: 105px; background: var(--secondary); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
         .btn-float:hover { transform: scale(1.1); }
 
-        footer { background: #050505; padding: 60px 20px; text-align: center; border-top: 1px solid #111; }
-        footer p { color: var(--text-muted); font-size: 0.8rem; }
+        footer { background: #050505; padding: 60px 20px; text-align: center; border-top: 1px solid #111; margin-top: 80px; }
+        footer p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
 
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
             .hero h1 { font-size: 2.5rem; }
-            .contact-container { grid-template-columns: 1fr; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-visual { margin-bottom: 30px; }
             #chat-widget { width: 90%; right: 5%; bottom: 90px; }
         }
     </style>
@@ -92,53 +111,77 @@
         <nav class="navbar">
             <div class="brand">
                 <img src="./logo_fg.png" alt="Flávio Gonçales">
-                <div class="brand-name">
-                    65.611.420 FLAVIO GONCALES
-                    <span>TECNOLOGIA & AUDIOVISUAL</span>
+                <div class="brand-text">
+                    <span class="brand-title">65.611.420 FLAVIO GONCALES</span>
+                    <span class="brand-subtitle">TECNOLOGIA & AUDIOVISUAL CORPORATIVO</span>
                 </div>
             </div>
             <ul class="nav-menu">
+                <li><a href="#sobre">Especialista</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div>
-            <h1>Sua Empresa no <span>Nível Máximo</span> de Tecnologia.</h1>
-            <p>Especialista N3 em Infraestrutura de TI e Pós-produção Audiovisual cinematográfica. Soluções inteligentes com MBA em IA.</p>
-            <a href="#contato" class="cta-button">Solicitar Orçamento</a>
-        </div>
-        <div style="text-align: right;">
-            <img src="./logo_fg.png" alt="Logo" style="width: 80%; opacity: 0.2; filter: grayscale(1);">
+    <section class="hero-container hero" id="home">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="./video_circuito.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Expertise <span>Audiovisual</span> e Tecnologia N3.</h1>
+            <p>Pós-produção cinematográfica e infraestrutura de TI de alta performance com a inteligência que seu negócio exige.</p>
+            <a href="#contato" class="cta-button">Solicitar Atendimento</a>
         </div>
     </section>
 
-    <section id="servicos">
+    <section id="sobre">
         <div class="section-title">
-            <h2>Nossa Atuação</h2>
+            <h2>Tecnologia e <span>Criatividade Estratégica.</span></h2>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="bi bi-globe"></i>
-                <h3>Criação de Sites</h3>
-                <p>Desenvolvimento de portais institucionais e landing pages focadas em conversão e velocidade.</p>
+        <div class="about-grid">
+            <div class="about-visual">
+                <img src="./flavio_pro.png" alt="Flávio Gonçales" class="about-img">
             </div>
-            <div class="service-card">
-                <i class="bi bi-camera-reels"></i>
-                <h3>Pós-Produção</h3>
-                <p>Edição de vídeo cinematográfica, motion graphics e gestão profissional de Instagram.</p>
+            <div class="about-text">
+                <h3><span>Flávio Gonçales</span></h3>
+                <p>Une 15 anos de experiência técnica como Analista N3 com a visão inovadora da IA aplicada ao Audiovisual. Auditor ISO 9001 e Especialista em Cloud Computing.</p>
+                <div class="badge-container">
+                    <span class="badge">MBA em IA</span>
+                    <span class="badge">Analista N3</span>
+                    <span class="badge">Auditor ISO 9001</span>
+                    <span class="badge">Pós-Produção</span>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="bi bi-cpu"></i>
-                <h3>Infraestrutura TI</h3>
-                <p>Suporte N3 para servidores, redes críticas e segurança de dados com auditoria ISO 9001.</p>
+        </div>
+    </section>
+
+    <section id="servicos" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222; border-bottom: 1px solid #222;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="section-title">
+                <h2>Nossa Atuação</h2>
             </div>
-            <div class="service-card">
-                <i class="bi bi-mortarboard"></i>
-                <h3>Treinamentos</h3>
-                <p>Capacitação técnica para equipes em novas tecnologias e ferramentas digitais.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="bi bi-camera-reels"></i>
+                    <h4>Pós-Produção</h4>
+                    <p>Edição cinematográfica, motion graphics e finalização de alta qualidade para seus vídeos e Instagram.</p>
+                </div>
+                <div class="service-card">
+                    <i class="bi bi-globe"></i>
+                    <h4>Criação de Sites</h4>
+                    <p>Desenvolvimento de sites institucionais modernos, rápidos e focados em alta conversão (UX).</p>
+                </div>
+                <div class="service-card">
+                    <i class="bi bi-cpu"></i>
+                    <h4>Infraestrutura de TI</h4>
+                    <p>Suporte especializado N3 para servidores, redes críticas e manutenção de hardware crítico.</p>
+                </div>
+                <div class="service-card">
+                    <i class="bi bi-mortarboard"></i>
+                    <h4>Treinamentos</h4>
+                    <p>Capacitação de equipes em ferramentas digitais e tecnologia para aumento de produtividade.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -147,7 +190,7 @@
         <div class="section-title">
             <h2>Fale Conosco</h2>
         </div>
-        <div class="contact-container">
+        <div class="contact-grid">
             <div class="contact-form">
                 <div class="form-group">
                     <label>Seu Nome</label>
@@ -158,26 +201,26 @@
                     <input type="text" id="form-tel" placeholder="(15) 99999-9999">
                 </div>
                 <div class="form-group">
-                    <label>Como podemos ajudar?</label>
-                    <textarea id="form-msg" rows="4" placeholder="Descreva seu projeto..."></textarea>
+                    <label>Descreva seu projeto</label>
+                    <textarea id="form-msg" rows="4" placeholder="Como podemos te ajudar?"></textarea>
                 </div>
-                <button class="cta-button" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+                <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
             </div>
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58544.76713753733!2d-47.48784834863281!3d-23.543360099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f51f98d9c1b3%3A0x7d605151525b6a78!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d14631.393478954752!2d-47.4578918!3d-23.5388373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5f5106596b613%3A0x7d6b8b548d423b09!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="./logo_fg.png" alt="Logo" style="height: 40px; margin-bottom: 20px; opacity: 0.5;">
+        <img src="./logo_fg.png" alt="Logo" style="height: 50px; margin-bottom: 20px; opacity: 0.3;">
         <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
-        <p>Votorantim - SP | flaviogoncales26@gmail.com</p>
+        <p>flaviogoncales26@gmail.com | Votorantim, SP</p>
     </footer>
 
     <div id="chat-widget">
         <div class="chat-header">
-            <span>Assistente Especialista</span>
+            <span>Assistente Especialista FG</span>
             <span style="cursor:pointer" onclick="toggleChat()"><i class="bi bi-xl"></i></span>
         </div>
         <div class="chat-box" id="chat-box">
@@ -193,6 +236,7 @@
     <a href="https://wa.me/5515997571977" class="btn-float btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
+        // MANTENDO A URL DO MAKE QUE FUNCIONOU
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
         function toggleChat() {
@@ -221,11 +265,12 @@
 
                 if(response.ok) {
                     const data = await response.text();
+                    // Filtra o "Accepted" caso o Response não esteja pronto
                     if(data !== "Accepted") {
                         chatBox.innerHTML += `<div class="message bot">${data}</div>`;
                     }
                 } else {
-                    chatBox.innerHTML += `<div class="message bot">Desculpe, tive um problema de conexão. Pode repetir?</div>`;
+                    chatBox.innerHTML += `<div class="message bot">Tive um problema de conexão. Pode repetir?</div>`;
                 }
             } catch (error) {
                 chatBox.innerHTML += `<div class="message bot">Erro ao contatar servidor.</div>`;
