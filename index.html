@@ -88,25 +88,21 @@
         .form-group input:focus { border-color: var(--primary); }
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
-        /* NOVO RODAPÉ CORPORATIVO (MEGA FOOTER) */
+        /* MEGA FOOTER */
         .site-footer { background: #050505; padding: 80px 20px 30px; border-top: 1px solid #111; margin-top: 60px; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; text-align: left; }
         .footer-col h4 { color: var(--text-main); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
-        
         .brand-col img { height: 60px; margin-bottom: 20px; opacity: 0.9; }
         .brand-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5; }
         .social-links { display: flex; gap: 15px; }
         .social-links a { background: #111; color: var(--text-main); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: 0.3s; border: 1px solid #222; font-size: 1.2rem; }
         .social-links a:hover { background: var(--primary); color: #000; border-color: var(--primary); }
-        
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
         .footer-col ul li a { color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; }
         .footer-col ul li a:hover { color: var(--primary); padding-left: 5px; }
-        
         .contact-col ul li { color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .contact-col ul li i { color: var(--primary); font-size: 1.2rem; }
         .support-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 10px 18px; border-radius: 30px; font-size: 0.85rem; border: 1px solid rgba(0, 255, 127, 0.2); margin-top: 15px; font-weight: bold; letter-spacing: 0.5px; }
-        
         .footer-bottom { text-align: center; padding-top: 30px; margin-top: 50px; border-top: 1px solid #111; }
         .footer-bottom p { color: #444; font-size: 0.85rem; }
 
@@ -124,19 +120,15 @@
         .chat-input { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; background: var(--panel-bg); }
         .chat-input input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 5px; outline: none; }
         
-        /* FLOATING BUTTONS */
         .btn-float { position: fixed; right: 30px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; transition: 0.3s; z-index: 1001; }
         .btn-ai { bottom: 105px; background: var(--secondary); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
         .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
-        .btn-float:hover { transform: scale(1.1); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .about-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; }
-            .about-visual { margin-bottom: 30px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .social-links { justify-content: center; }
-            .contact-col ul li { justify-content: center; }
+            .social-links, .contact-col ul li { justify-content: center; }
             #chat-widget { width: 90%; right: 5%; bottom: 90px; }
         }
     </style>
@@ -185,14 +177,12 @@
                 <p>15+ anos de experiência em TI. Unindo técnica otimizada e IA aplicada ao audiovisual, com foco absoluto em segurança, performance e conversão de resultados.</p>
                 <div class="badge-container">
                     <span class="badge">Analista de TI</span>
-                    <span class="badge">Projetos e arquiteturas em cloud computing</span>
+                    <span class="badge">Cloud Architecture</span>
                     <span class="badge">Gestão de TI</span>
                     <span class="badge">ITIL Foundation</span>
-                    <span class="badge">Pós- Gestão de IA</span>
+                    <span class="badge">Pós Gestão de IA</span>
                     <span class="badge">LGPD</span>
-                    <span class="badge">Melhoria Contínua</span>
                     <span class="badge">Auditor ISO9001</span>
-                    <span class="badge">Aulas de Informática</span>
                     <span class="badge">DBA</span>
                     <span class="badge">Office 365 Admin</span>
                 </div>
@@ -202,90 +192,45 @@
 
     <section id="servicos" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222; border-bottom: 1px solid #222;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="section-title">
-                <h2>Nossa Atuação</h2>
-            </div>
+            <div class="section-title"><h2>Nossa Atuação</h2></div>
             <div class="services-grid">
-                <div class="service-card">
-                    <i class="bi bi-camera-reels"></i>
-                    <h4>Pós-Produção</h4>
-                    <p>Edição cinematográfica, motion graphics e finalização de alta qualidade para os seus vídeos.</p>
-                </div>
-                <div class="service-card">
-                    <i class="bi bi-globe"></i>
-                    <h4>Criação de Sites</h4>
-                    <p>Desenvolvimento de sites institucionais modernos, rápidos e focados em alta conversão (UX).</p>
-                </div>
-                <div class="service-card">
-                    <i class="bi bi-cpu"></i>
-                    <h4>Infraestrutura de TI</h4>
-                    <p>Suporte especializado N3 para servidores, redes críticas e manutenção de hardware.</p>
-                </div>
+                <div class="service-card"><i class="bi bi-camera-reels"></i><h4>Pós-Produção</h4><p>Edição cinematográfica e motion graphics de alta qualidade.</p></div>
+                <div class="service-card"><i class="bi bi-globe"></i><h4>Criação de Sites</h4><p>Sites institucionais modernos focados em UX e conversão.</p></div>
+                <div class="service-card"><i class="bi bi-cpu"></i><h4>Infraestrutura TI</h4><p>Suporte especializado N3 para redes críticas e servidores.</p></div>
             </div>
         </div>
     </section>
 
     <section id="projetos">
-        <div class="section-title">
-            <h2>Meus <span>Projetos</span></h2>
-        </div>
+        <div class="section-title"><h2>Meus <span>Projetos</span></h2></div>
         <div class="projects-grid">
             <a href="https://www.autorg4.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Site Auto RG4">
-                </div>
-                <div class="project-info">
-                    <h4>Auto RG4</h4>
-                    <p>Site institucional e gestão de anúncios para o setor automotivo, com foco em captação de leads.</p>
-                    <span class="project-link">Acessar Projeto <i class="bi bi-arrow-right"></i></span>
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Auto RG4"></div>
+                <div class="project-info"><h4>Auto RG4</h4><p>Site institucional focado em captação de leads automotivos.</p></div>
             </a>
             <a href="https://www.sosinglesus.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="Site SOS Inglês US">
-                </div>
-                <div class="project-info">
-                    <h4>SOS Inglês US</h4>
-                    <p>Plataforma moderna focada em conversão para cursos e ensino da língua inglesa.</p>
-                    <span class="project-link">Acessar Projeto <i class="bi bi-arrow-right"></i></span>
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="SOS Inglês US"></div>
+                <div class="project-info"><h4>SOS Inglês US</h4><p>Plataforma moderna de conversão para ensino de idiomas.</p></div>
             </a>
             <a href="https://www.votofrio.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Site Votofrio">
-                </div>
-                <div class="project-info">
-                    <h4>Votofrio Ar Condicionado</h4>
-                    <p>Desenvolvimento e configuração completa de website institucional para serviços de climatização.</p>
-                    <span class="project-link">Acessar Projeto <i class="bi bi-arrow-right"></i></span>
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Votofrio"></div>
+                <div class="project-info"><h4>Votofrio</h4><p>Website para serviços de climatização e refrigeração.</p></div>
             </a>
         </div>
     </section>
 
     <section id="contato" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="section-title">
-                <h2>Fale Conosco</h2>
-            </div>
+            <div class="section-title"><h2>Fale Conosco</h2></div>
             <div class="contact-grid">
                 <div class="contact-form">
-                    <div class="form-group">
-                        <label>Seu Nome</label>
-                        <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
-                    </div>
-                    <div class="form-group">
-                        <label>WhatsApp</label>
-                        <input type="text" id="form-tel" placeholder="(15) 99999-9999">
-                    </div>
-                    <div class="form-group">
-                        <label>Descreva seu projeto</label>
-                        <textarea id="form-msg" rows="4" placeholder="Como podemos ajudar?"></textarea>
-                    </div>
+                    <div class="form-group"><label>Seu Nome</label><input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales"></div>
+                    <div class="form-group"><label>WhatsApp</label><input type="text" id="form-tel" placeholder="(15) 99999-9999"></div>
+                    <div class="form-group"><label>Descreva seu projeto</label><textarea id="form-msg" rows="4" placeholder="Como podemos ajudar?"></textarea></div>
                     <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
                 </div>
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117185.80783321588!2d-47.52554749454157!3d-23.56619098717596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58ab8b8577383%3A0x63339097782bcfbc!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713800000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117185.80783321588!2d-47.52554749454157!3d-23.56619098717596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58ab8b8577383%3A0x63339097782bcfbc!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713800000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -294,54 +239,29 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col brand-col">
-                <img src="./logo_fg.png" alt="65.611.420 FLAVIO GONCALES">
-                <p>Especialistas em ambientes de missão crítica, infraestrutura N3 e soluções de alto impacto audiovisual.</p>
+                <img src="./logo_fg.png" alt="Flávio Gonçales">
+                <p>Especialistas em ambientes de missão crítica e impacto audiovisual.</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/fgoncalestech?igsh=OGRpdDh5dnZsZHlo" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/fgoncalestech?igsh=OGRpdDh5dnZsZHlo" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            
-            <div class="footer-col">
-                <h4>Serviços</h4>
-                <ul>
-                    <li><a href="#servicos">Criação de Sites</a></li>
-                    <li><a href="#servicos">Pós-Produção</a></li>
-                    <li><a href="#servicos">Infraestrutura TI (N3)</a></li>
-                    <li><a href="#servicos">Treinamentos</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a href="#sobre">Especialista</a></li>
-                    <li><a href="#projetos">Cases de Sucesso</a></li>
-                    <li><a href="#contato">Fale Conosco</a></li>
-                </ul>
-            </div>
-            
+            <div class="footer-col"><h4>Serviços</h4><ul><li>Criação de Sites</li><li>Pós-Produção</li><li>Infra TI N3</li></ul></div>
+            <div class="footer-col"><h4>Empresa</h4><ul><li>Especialista</li><li>Cases</li><li>Contato</li></ul></div>
             <div class="footer-col contact-col">
                 <h4>Contato</h4>
-                <ul>
-                    <li><i class="bi bi-geo-alt"></i> Votorantim, SP</li>
-                    <li><i class="bi bi-envelope"></i> flaviogoncales26@gmail.com</li>
-                    <li><i class="bi bi-whatsapp"></i> (15) 99757-1977</li>
-                </ul>
-                <div class="support-badge"><i class="bi bi-headset"></i> Suporte N3 Ativo</div>
+                <ul><li>Votorantim, SP</li><li>flaviogoncales26@gmail.com</li><li>(15) 99757-1977</li></ul>
+                <div class="support-badge">Suporte N3 Ativo</div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 65.611.420 FLAVIO GONCALES. Todos os direitos reservados. CNPJ: 65.611.420/0001-50</p>
-        </div>
+        <div class="footer-bottom"><p>© 2026 65.611.420 FLAVIO GONCALES. CNPJ: 65.611.420/0001-50</p></div>
     </footer>
 
     <div id="chat-widget">
         <div class="chat-header">
             <span>Assistente Especialista FG</span>
             <div class="chat-controls">
-                <i class="bi bi-dash-lg" onclick="minimizeChat()" title="Minimizar"></i>
-                <i class="bi bi-x-lg" onclick="closeChat()" title="Fechar"></i>
+                <i class="bi bi-dash-lg" onclick="minimizeChat()"></i>
+                <i class="bi bi-x-lg" onclick="closeChat()"></i>
             </div>
         </div>
         <div class="chat-box" id="chat-box">
@@ -349,7 +269,7 @@
         </div>
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Digite sua dúvida...">
-            <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px; cursor:pointer"><i class="bi bi-send-fill"></i></button>
+            <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px;"><i class="bi bi-send-fill"></i></button>
         </div>
     </div>
 
@@ -369,17 +289,14 @@
             }
         }
 
-        function minimizeChat() {
-            const chat = document.getElementById('chat-widget');
-            chat.classList.toggle('chat-minimized');
-        }
-
-        function closeChat() {
+        function minimizeChat() { document.getElementById('chat-widget').classList.toggle('chat-minimized'); }
+        function closeChat() { 
             const chat = document.getElementById('chat-widget');
             chat.style.display = 'none';
             chat.classList.remove('chat-minimized');
         }
 
+        // FUNÇÃO ATUALIZADA COM TRATAMENTO DE TIMEOUT E ERRO ROBUSTO
         async function sendChatMessage() {
             const input = document.getElementById('user-input');
             const chatBox = document.getElementById('chat-box');
@@ -391,23 +308,38 @@
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
 
+            // Criar controlador de aborto para timeout de 60 segundos
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 60000);
+
             try {
                 const response = await fetch(webHookUrl, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ message: msg })
+                    body: JSON.stringify({ message: msg }),
+                    signal: controller.signal
                 });
+
+                clearTimeout(timeoutId);
 
                 if(response.ok) {
                     const data = await response.text();
-                    if(data !== "Accepted") {
+                    if(data !== "Accepted" && data.trim() !== "") {
                         chatBox.innerHTML += `<div class="message bot">${data}</div>`;
+                    } else if (data === "Accepted") {
+                        // Resposta padrão caso o Make demore a processar o Gemini mas aceite o Webhook
+                        chatBox.innerHTML += `<div class="message bot">Solicitação recebida. Processando resposta...</div>`;
                     }
                 } else {
-                    chatBox.innerHTML += `<div class="message bot">Tive um problema de conexão. Pode repetir?</div>`;
+                    throw new Error("Servidor Offline");
                 }
             } catch (error) {
-                chatBox.innerHTML += `<div class="message bot">Erro ao contatar o servidor.</div>`;
+                if (error.name === 'AbortError') {
+                    chatBox.innerHTML += `<div class="message bot" style="color:#ff4444;">O sistema demorou a processar. Verifique sua conexão ou tente novamente.</div>`;
+                } else {
+                    chatBox.innerHTML += `<div class="message bot" style="color:#ff4444;">Falha técnica na comunicação. Por favor, tente novamente.</div>`;
+                }
+                console.error("Erro Chat:", error);
             }
             chatBox.scrollTop = chatBox.scrollHeight;
         }
