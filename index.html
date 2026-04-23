@@ -67,7 +67,7 @@
         .service-card h4 { margin-bottom: 15px; font-size: 1.4rem; color: var(--secondary); }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* PROJETOS - API DO WORDPRESS MSHOTS */
+        /* PROJETOS */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { background: var(--panel-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; display: block; text-decoration: none; color: inherit; }
         .project-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,255,127,0.1); }
@@ -88,16 +88,35 @@
         .form-group input:focus { border-color: var(--primary); }
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
+        /* NOVO RODAPÉ CORPORATIVO (MEGA FOOTER) */
+        .site-footer { background: #050505; padding: 80px 20px 30px; border-top: 1px solid #111; margin-top: 60px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; text-align: left; }
+        .footer-col h4 { color: var(--text-main); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .brand-col img { height: 60px; margin-bottom: 20px; opacity: 0.9; }
+        .brand-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5; }
+        .social-links { display: flex; gap: 15px; }
+        .social-links a { background: #111; color: var(--text-main); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: 0.3s; border: 1px solid #222; font-size: 1.2rem; }
+        .social-links a:hover { background: var(--primary); color: #000; border-color: var(--primary); }
+        
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+        .footer-col ul li a { color: var(--text-muted); font-size: 0.95rem; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--primary); padding-left: 5px; }
+        
+        .contact-col ul li { color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .contact-col ul li i { color: var(--primary); font-size: 1.2rem; }
+        .support-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 10px 18px; border-radius: 30px; font-size: 0.85rem; border: 1px solid rgba(0, 255, 127, 0.2); margin-top: 15px; font-weight: bold; letter-spacing: 0.5px; }
+        
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 50px; border-top: 1px solid #111; }
+        .footer-bottom p { color: #444; font-size: 0.85rem; }
+
         /* CHATBOT */
         #chat-widget { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 480px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); transition: height 0.3s ease; overflow: hidden; }
         .chat-header { background: var(--secondary); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 14px 14px 0 0; }
-        
-        /* NOVOS CONTROLES DO CHAT */
         .chat-controls { display: flex; gap: 15px; align-items: center; }
         .chat-controls i { cursor: pointer; font-size: 1.2rem; transition: 0.2s; }
         .chat-controls i:hover { transform: scale(1.2); }
-        .chat-minimized { height: 54px !important; } /* Altura apenas do cabeçalho */
-
+        .chat-minimized { height: 54px !important; }
         .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: thin; }
         .message { padding: 10px 15px; border-radius: 10px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; white-space: pre-line; }
         .message.bot { background: #252525; align-self: flex-start; border-left: 3px solid var(--primary); }
@@ -111,13 +130,13 @@
         .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
         .btn-float:hover { transform: scale(1.1); }
 
-        footer { background: #050505; padding: 60px 20px; text-align: center; border-top: 1px solid #111; margin-top: 80px; }
-        footer p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .about-grid, .contact-grid { grid-template-columns: 1fr; text-align: center; }
             .about-visual { margin-bottom: 30px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+            .contact-col ul li { justify-content: center; }
             #chat-widget { width: 90%; right: 5%; bottom: 90px; }
         }
     </style>
@@ -272,10 +291,49 @@
         </div>
     </section>
 
-    <footer>
-        <img src="./logo_fg.png" alt="Logo" style="height: 50px; margin-bottom: 20px; opacity: 0.3;">
-        <p>65.611.420 FLAVIO GONCALES | CNPJ: 65.611.420/0001-50</p>
-        <p>flaviogoncales26@gmail.com | Votorantim, SP</p>
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <img src="./logo_fg.png" alt="65.611.420 FLAVIO GONCALES">
+                <p>Especialistas em ambientes de missão crítica, infraestrutura N3 e soluções de alto impacto audiovisual.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/fgoncalestech?igsh=OGRpdDh5dnZsZHlo" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#servicos">Criação de Sites</a></li>
+                    <li><a href="#servicos">Pós-Produção</a></li>
+                    <li><a href="#servicos">Infraestrutura TI (N3)</a></li>
+                    <li><a href="#servicos">Treinamentos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#sobre">Especialista</a></li>
+                    <li><a href="#projetos">Cases de Sucesso</a></li>
+                    <li><a href="#contato">Fale Conosco</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col contact-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="bi bi-geo-alt"></i> Votorantim, SP</li>
+                    <li><i class="bi bi-envelope"></i> flaviogoncales26@gmail.com</li>
+                    <li><i class="bi bi-whatsapp"></i> (15) 99757-1977</li>
+                </ul>
+                <div class="support-badge"><i class="bi bi-headset"></i> Suporte N3 Ativo</div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 65.611.420 FLAVIO GONCALES. Todos os direitos reservados. CNPJ: 65.611.420/0001-50</p>
+        </div>
     </footer>
 
     <div id="chat-widget">
@@ -301,7 +359,6 @@
     <script>
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
-        // Abre o chat e garante que ele não esteja minimizado
         function toggleChat() {
             const chat = document.getElementById('chat-widget');
             if (chat.style.display === 'flex' && !chat.classList.contains('chat-minimized')) {
@@ -312,13 +369,11 @@
             }
         }
 
-        // Função de Minimizar (encolhe a janela)
         function minimizeChat() {
             const chat = document.getElementById('chat-widget');
             chat.classList.toggle('chat-minimized');
         }
 
-        // Função de Fechar (esconde totalmente e reseta o estado)
         function closeChat() {
             const chat = document.getElementById('chat-widget');
             chat.style.display = 'none';
