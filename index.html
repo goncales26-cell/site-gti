@@ -296,51 +296,49 @@
             chat.classList.remove('chat-minimized');
         }
 
-        // FUNÇÃO ATUALIZADA COM TRATAMENTO DE TIMEOUT E ERRO ROBUSTO
-      async function sendChatMessage() {
-    const input = document.getElementById('user-input');
-    const chatBox = document.getElementById('chat-box');
-    const msg = input.value.trim();
+        async function sendChatMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const msg = input.value.trim();
 
-    if(!msg) return;
+            if(!msg) return;
 
-    chatBox.innerHTML += `<div class="message user">${msg}</div>`;
-    input.value = '';
-    chatBox.scrollTop = chatBox.scrollHeight;
+            chatBox.innerHTML += `<div class="message user">${msg}</div>`;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000); 
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 60000); 
 
-    try {
-        const response = await fetch(webHookUrl, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ message: msg }),
-            signal: controller.signal
-        });
+            try {
+                const response = await fetch(webHookUrl, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ message: msg }),
+                    signal: controller.signal
+                });
 
-        clearTimeout(timeoutId);
+                clearTimeout(timeoutId);
 
-        if(response.ok) {
-            const data = await response.text(); // Lemos como texto primeiro para evitar erro de parse
-            
-            // Tenta limpar a resposta (remover aspas extras se o Make enviar)
-            let cleanData = data.replace(/^"|"$/g, '').trim();
+                if(response.ok) {
+                    const data = await response.text(); 
+                    
+                    let cleanData = data.replace(/^"|"$/g, '').trim();
 
-            if(cleanData && cleanData !== "Accepted") {
-                chatBox.innerHTML += `<div class="message bot">${cleanData}</div>`;
-            } else {
-                chatBox.innerHTML += `<div class="message bot">Recebi sua mensagem! O Flávio já foi notificado no Telegram.</div>`;
+                    if(cleanData && cleanData !== "Accepted") {
+                        chatBox.innerHTML += `<div class="message bot">${cleanData}</div>`;
+                    } else {
+                        chatBox.innerHTML += `<div class="message bot">Recebi sua mensagem! O Flávio já foi notificado no Telegram.</div>`;
+                    }
+                } else {
+                    throw new Error("Status de resposta não ok");
+                }
+            } catch (error) {
+                console.error("Erro detalhado:", error);
+                chatBox.innerHTML += `<div class="message bot" style="color: #ffaa00;">Sistema em processamento. Tente enviar novamente ou chame no WhatsApp abaixo.</div>`;
             }
-        } else {
-            throw new Error("Status de resposta não ok");
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
-    } catch (error) {
-        console.error("Erro detalhado:", error);
-        chatBox.innerHTML += `<div class="message bot" style="color: #ffaa00;">Sistema em processamento. Tente enviar novamente ou chame no WhatsApp abaixo.</div>`;
-    }
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
 
         document.getElementById('user-input').addEventListener('keypress', (e) => {
             if(e.key === 'Enter') sendChatMessage();
