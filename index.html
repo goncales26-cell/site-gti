@@ -313,7 +313,6 @@
             try {
                 const response = await fetch(webHookUrl, {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ message: msg }),
                     signal: controller.signal
                 });
