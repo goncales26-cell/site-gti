@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +67,7 @@
         .service-card h4 { margin-bottom: 15px; font-size: 1.4rem; color: var(--secondary); }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* PROJETOS - NOVA API DE IMAGENS */
+        /* PROJETOS - API DO WORDPRESS MSHOTS */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { background: var(--panel-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; display: block; text-decoration: none; color: inherit; }
         .project-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,255,127,0.1); }
@@ -89,13 +89,20 @@
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
         /* CHATBOT */
-        #chat-widget { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 480px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+        #chat-widget { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 480px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); transition: height 0.3s ease; overflow: hidden; }
         .chat-header { background: var(--secondary); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 14px 14px 0 0; }
+        
+        /* NOVOS CONTROLES DO CHAT */
+        .chat-controls { display: flex; gap: 15px; align-items: center; }
+        .chat-controls i { cursor: pointer; font-size: 1.2rem; transition: 0.2s; }
+        .chat-controls i:hover { transform: scale(1.2); }
+        .chat-minimized { height: 54px !important; } /* Altura apenas do cabeçalho */
+
         .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: thin; }
         .message { padding: 10px 15px; border-radius: 10px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; white-space: pre-line; }
         .message.bot { background: #252525; align-self: flex-start; border-left: 3px solid var(--primary); }
         .message.user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 500; }
-        .chat-input { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; }
+        .chat-input { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; background: var(--panel-bg); }
         .chat-input input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 5px; outline: none; }
         
         /* FLOATING BUTTONS */
@@ -210,7 +217,7 @@
                 </div>
                 <div class="project-info">
                     <h4>Auto RG4</h4>
-                    <p>Site institucional e gestão de anúncios para o setor automóvel, com foco em captação de leads.</p>
+                    <p>Site institucional e gestão de anúncios para o setor automotivo, com foco em captação de leads.</p>
                     <span class="project-link">Acessar Projeto <i class="bi bi-arrow-right"></i></span>
                 </div>
             </a>
@@ -240,12 +247,12 @@
     <section id="contato" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="section-title">
-                <h2>Fale Connosco</h2>
+                <h2>Fale Conosco</h2>
             </div>
             <div class="contact-grid">
                 <div class="contact-form">
                     <div class="form-group">
-                        <label>O Seu Nome</label>
+                        <label>Seu Nome</label>
                         <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
                     </div>
                     <div class="form-group">
@@ -253,7 +260,7 @@
                         <input type="text" id="form-tel" placeholder="(15) 99999-9999">
                     </div>
                     <div class="form-group">
-                        <label>Descreva o seu projeto</label>
+                        <label>Descreva seu projeto</label>
                         <textarea id="form-msg" rows="4" placeholder="Como podemos ajudar?"></textarea>
                     </div>
                     <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
@@ -274,13 +281,16 @@
     <div id="chat-widget">
         <div class="chat-header">
             <span>Assistente Especialista FG</span>
-            <span style="cursor:pointer" onclick="toggleChat()"><i class="bi bi-xl"></i></span>
+            <div class="chat-controls">
+                <i class="bi bi-dash-lg" onclick="minimizeChat()" title="Minimizar"></i>
+                <i class="bi bi-x-lg" onclick="closeChat()" title="Fechar"></i>
+            </div>
         </div>
         <div class="chat-box" id="chat-box">
             <div class="message bot">Olá! Sou o assistente do Flávio Gonçales. Em que posso ajudar a sua empresa hoje?</div>
         </div>
         <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Digite a sua mensagem...">
+            <input type="text" id="user-input" placeholder="Digite sua dúvida...">
             <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px; cursor:pointer"><i class="bi bi-send-fill"></i></button>
         </div>
     </div>
@@ -291,9 +301,28 @@
     <script>
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
+        // Abre o chat e garante que ele não esteja minimizado
         function toggleChat() {
             const chat = document.getElementById('chat-widget');
-            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+            if (chat.style.display === 'flex' && !chat.classList.contains('chat-minimized')) {
+                closeChat();
+            } else {
+                chat.style.display = 'flex';
+                chat.classList.remove('chat-minimized');
+            }
+        }
+
+        // Função de Minimizar (encolhe a janela)
+        function minimizeChat() {
+            const chat = document.getElementById('chat-widget');
+            chat.classList.toggle('chat-minimized');
+        }
+
+        // Função de Fechar (esconde totalmente e reseta o estado)
+        function closeChat() {
+            const chat = document.getElementById('chat-widget');
+            chat.style.display = 'none';
+            chat.classList.remove('chat-minimized');
         }
 
         async function sendChatMessage() {
@@ -320,10 +349,10 @@
                         chatBox.innerHTML += `<div class="message bot">${data}</div>`;
                     }
                 } else {
-                    chatBox.innerHTML += `<div class="message bot">Tive um problema de ligação. Pode repetir?</div>`;
+                    chatBox.innerHTML += `<div class="message bot">Tive um problema de conexão. Pode repetir?</div>`;
                 }
             } catch (error) {
-                chatBox.innerHTML += `<div class="message bot">Erro ao contactar o servidor.</div>`;
+                chatBox.innerHTML += `<div class="message bot">Erro ao contatar o servidor.</div>`;
             }
             chatBox.scrollTop = chatBox.scrollHeight;
         }
