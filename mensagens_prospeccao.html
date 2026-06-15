@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens de Prospecção | GonçalesTech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #080C10;
+            --dark:  #0D1117;
+            --panel: #141B22;
+            --border:#1E2A35;
+            --green: #00FF7F;
+            --gold:  #D4AF37;
+            --white: #F0F4F8;
+            --muted: #6B7C8F;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; min-height: 100vh; padding: 40px 20px; }
+
+        .header { text-align: center; margin-bottom: 48px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+        .header h1 span { color: var(--green); }
+        .header p { color: var(--muted); font-size: 0.9rem; }
+
+        .container { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+        /* BLOCO DE MENSAGEM */
+        .msg-block { background: var(--dark); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .msg-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border); background: var(--panel); }
+        .msg-step { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); display: flex; align-items: center; gap: 8px; }
+        .msg-step::before { content: ''; width: 16px; height: 2px; background: var(--green); }
+        .msg-when { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+        .msg-body { padding: 20px; white-space: pre-wrap; font-size: 0.95rem; line-height: 1.75; color: var(--white); }
+        .msg-footer { padding: 12px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+        .btn-copy {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(0,255,127,0.1); border: 1px solid rgba(0,255,127,0.2);
+            color: var(--green); padding: 8px 18px; border-radius: 4px;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+            font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.2s; outline: none;
+        }
+        .btn-copy:hover { background: rgba(0,255,127,0.2); }
+        .btn-copy.copiado { background: rgba(0,255,127,0.25); color: var(--green); }
+
+        /* SEPARADOR */
+        .separator { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 0.78rem; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 0; }
+        .separator::before, .separator::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* DICA */
+        .tip { background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; padding: 16px 20px; margin-top: 8px; }
+        .tip-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .tip p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+
+        /* TOAST */
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green); color: var(--black); padding: 10px 24px; border-radius: 4px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.85rem; transition: transform 0.3s ease; z-index: 9999; pointer-events: none; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (max-width: 500px) {
+            body { padding: 24px 16px; }
+            .msg-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Roteiro de <span>Prospecção</span></h1>
+        <p>GonçalesTech · Flávio Gonçales · (15) 99757-1977</p>
+    </div>
+
+    <div class="container">
+
+        <!-- MENSAGEM 1 -->
+        <div class="msg-block">
+            <div class="msg-header">
+                <span class="msg-step">Mensagem 1 — Abertura</span>
+                <span class="msg-when">Enviar para todos</span>
+            </div>
+            <div class="msg-body" id="msg1">Olá, [Nome]! 👋
+
+Sou o Flávio, especialista em criação de sites aqui de Votorantim.
+
+Seu negócio aparece no Google quando alguém procura pelo que você oferece?</div>
+            <div class="msg-footer">
+                <button class="btn-copy" onclick="copiar('msg1', this)">
+                    <i>📋</i> Copiar mensagem
+                </button>
+            </div>
+        </div>
+
+        <div class="separator">Aguardar resposta</div>
+
+        <!-- MENSAGEM 2 -->
+        <div class="msg-block">
+            <div class="msg-header">
+                <span class="msg-step">Mensagem 2 — Após resposta</span>
+                <span class="msg-when">Qualquer resposta = interesse</span>
+            </div>
+            <div class="msg-body" id="msg2">Que ótimo! Montei um portfólio com cases reais de empresas da região que já ajudei.
+
+Posso te mandar para você dar uma olhada?</div>
+            <div class="msg-footer">
+                <button class="btn-copy" onclick="copiar('msg2', this)">
+                    <i>📋</i> Copiar mensagem
+                </button>
+            </div>
+        </div>
+
+        <div class="separator">Após confirmar</div>
+
+        <!-- MENSAGEM 3 -->
+        <div class="msg-block">
+            <div class="msg-header">
+                <span class="msg-step">Mensagem 3 — Envio do link</span>
+                <span class="msg-when">Só após pedir permissão</span>
+            </div>
+            <div class="msg-body" id="msg3">Aqui está! 👇
+
+goncalestech.com.br/portfolio.html
+
+Qualquer dúvida é só falar. Posso fazer um diagnóstico gratuito da sua presença digital também — sem compromisso. 😊</div>
+            <div class="msg-footer">
+                <button class="btn-copy" onclick="copiar('msg3', this)">
+                    <i>📋</i> Copiar mensagem
+                </button>
+            </div>
+        </div>
+
+        <!-- DICA -->
+        <div class="tip">
+            <div class="tip-title">💡 Por que funciona assim?</div>
+            <p>O link só aparece depois que a pessoa pediu para receber. Isso elimina o medo de vírus e aumenta muito a taxa de clique — porque ela está esperando receber, não sendo surpreendida.</p>
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">Mensagem copiada!</div>
+
+    <script>
+        function copiar(id, btn) {
+            const texto = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(texto).then(() => {
+                btn.textContent = '✓ Copiado!';
+                btn.classList.add('copiado');
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    btn.innerHTML = '<i>📋</i> Copiar mensagem';
+                    btn.classList.remove('copiado');
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
