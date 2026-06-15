@@ -518,13 +518,17 @@
             const timeoutId  = setTimeout(() => controller.abort(), 60000);
 
             try {
-                // Envia histórico completo ao Make — Gemini terá todo o contexto
+                // Converte histórico para texto simples — evita erro de array vazio no Make
+                const historicoTexto = conversationHistory.length > 1
+                    ? conversationHistory.slice(0, -1).map(h => h.role + ': ' + h.content).join(' | ')
+                    : 'Inicio da conversa';
+
                 const response = await fetch(webHookUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         message: msg,
-                        history: conversationHistory  // histórico completo
+                        history: historicoTexto
                     }),
                     signal: controller.signal
                 });
