@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -24,6 +25,44 @@
 
     <link rel="icon" href="https://www.goncalestech.com.br/logo_fg.png" type="image/png">
 
+    <!-- Schema.org Person + LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Flávio Gonçales",
+      "jobTitle": "Analista de TI N3 e Desenvolvedor Web",
+      "url": "https://www.goncalestech.com.br",
+      "image": "https://www.goncalestech.com.br/logo_fg.png",
+      "email": "flaviogoncales26@gmail.com",
+      "telephone": "+5515997571977",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Votorantim",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "sameAs": ["https://www.instagram.com/fgoncalestech"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "65.611.420 FLAVIO GONCALES",
+      "url": "https://www.goncalestech.com.br",
+      "telephone": "+5515997571977",
+      "email": "flaviogoncales26@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Votorantim",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "description": "Soluções em TI N3, criação de sites e pós-produção audiovisual."
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
@@ -42,14 +81,13 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         /* HEADER */
-        header { background-color: rgba(5, 5, 5, 0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        header { background-color: rgba(5,5,5,0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
         .navbar { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 15px; }
-        .brand img { height: 75px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(0, 255, 127, 0.2); }
+        .brand img { height: 75px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(0,255,127,0.2); }
         .brand-text { display: flex; flex-direction: column; }
         .brand-title { font-weight: 800; font-size: 1.2rem; }
         .brand-subtitle { color: var(--secondary); font-size: 0.7rem; letter-spacing: 1px; }
-        
         .nav-menu { display: flex; gap: 20px; list-style: none; }
         .nav-menu a { font-size: 0.9rem; font-weight: 500; }
         .nav-menu a:hover { color: var(--primary); }
@@ -61,8 +99,8 @@
         .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 span { color: var(--primary); }
         .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
-        .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 255, 127, 0.4); }
+        .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,127,0.4); }
 
         /* SEÇÕES */
         section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
@@ -77,7 +115,7 @@
         .about-text h3 { font-size: 2rem; margin-bottom: 20px; }
         .about-text h3 span { color: var(--primary); }
         .badge-container { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .badge { background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0, 255, 127, 0.2); }
+        .badge { background: rgba(0,255,127,0.1); color: var(--primary); padding: 6px 15px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0,255,127,0.2); }
 
         /* SERVIÇOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -91,24 +129,30 @@
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { background: var(--panel-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; display: block; text-decoration: none; color: inherit; }
         .project-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,255,127,0.1); }
-        .project-img { width: 100%; height: 220px; background: #1a1a1a; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #222; overflow: hidden; }
+        .project-img { width: 100%; height: 220px; background: #1a1a1a; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #222; overflow: hidden; position: relative; }
         .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; object-position: top; }
         .project-card:hover .project-img img { transform: scale(1.05); }
+        .project-img .img-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85rem; flex-direction: column; gap: 8px; }
+        .project-img .img-loading i { font-size: 2rem; color: var(--secondary); }
         .project-info { padding: 25px; }
         .project-info h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
         .project-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
-        .project-link { font-size: 0.85rem; color: var(--secondary); font-weight: bold; }
+        .project-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; background: rgba(0,255,127,0.1); color: var(--primary); padding: 3px 10px; border-radius: 4px; border: 1px solid rgba(0,255,127,0.2); margin-right: 6px; margin-bottom: 6px; }
+        .project-link { font-size: 0.85rem; color: var(--secondary); font-weight: bold; display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; }
 
-        /* CONTATO & MAPA */
+        /* CONTATO */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
         .contact-form { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--secondary); font-size: 0.9rem; }
-        .form-group input, .form-group textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: #fff; border-radius: 5px; outline: none; }
-        .form-group input:focus { border-color: var(--primary); }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--secondary); font-size: 0.9rem; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: #fff; border-radius: 5px; outline: none; font-size: 0.95rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .form-feedback { display: none; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; }
+        .form-feedback.success { background: rgba(0,255,127,0.1); color: var(--primary); border: 1px solid rgba(0,255,127,0.3); }
+        .form-feedback.error { background: rgba(255,80,80,0.1); color: #ff5050; border: 1px solid rgba(255,80,80,0.3); }
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
-        /* MEGA FOOTER */
+        /* FOOTER */
         .site-footer { background: #050505; padding: 80px 20px 30px; border-top: 1px solid #111; margin-top: 60px; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; text-align: left; }
         .footer-col h4 { color: var(--text-main); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -122,7 +166,7 @@
         .footer-col ul li a:hover { color: var(--primary); padding-left: 5px; }
         .contact-col ul li { color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .contact-col ul li i { color: var(--primary); font-size: 1.2rem; }
-        .support-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 127, 0.1); color: var(--primary); padding: 10px 18px; border-radius: 30px; font-size: 0.85rem; border: 1px solid rgba(0, 255, 127, 0.2); margin-top: 15px; font-weight: bold; letter-spacing: 0.5px; }
+        .support-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,255,127,0.1); color: var(--primary); padding: 10px 18px; border-radius: 30px; font-size: 0.85rem; border: 1px solid rgba(0,255,127,0.2); margin-top: 15px; font-weight: bold; letter-spacing: 0.5px; }
         .footer-bottom { text-align: center; padding-top: 30px; margin-top: 50px; border-top: 1px solid #111; }
         .footer-bottom p { color: #444; font-size: 0.85rem; }
 
@@ -139,10 +183,10 @@
         .message.user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 500; }
         .chat-input { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; background: var(--panel-bg); }
         .chat-input input { flex: 1; background: #000; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 5px; outline: none; }
-        
+
         .btn-float { position: fixed; right: 30px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; transition: 0.3s; z-index: 1001; }
-        .btn-ai { bottom: 105px; background: var(--secondary); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
-        .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        .btn-ai { bottom: 105px; background: var(--secondary); color: #000; box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
+        .btn-wa { bottom: 30px; background: #25d366; color: #fff; text-decoration: none; box-shadow: 0 5px 15px rgba(37,211,102,0.3); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -233,47 +277,134 @@
         </div>
     </section>
 
+    <!-- PROJETOS -->
     <section id="projetos">
         <div class="section-title"><h2>Projetos <span>Desenvolvidos</span></h2></div>
         <div class="projects-grid">
-            
-            <a href="#home" class="project-card" style="border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 255, 127, 0.15);">
+
+            <!-- GonçalesTech — destaque -->
+            <a href="#home" class="project-card" style="border-color: var(--primary); box-shadow: 0 0 15px rgba(0,255,127,0.15);">
                 <div class="project-img">
-                    <img src="./capa-site.jpg" alt="GonçalesTech - IA Integrada">
+                    <img src="./capa-site.jpg" alt="GonçalesTech">
                 </div>
                 <div class="project-info">
-                    <h4>GonçalesTech <span style="font-size: 0.7rem; background: var(--primary); color: #000; padding: 3px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; font-weight: bold; letter-spacing: 0.5px;">IA Integrada</span></h4>
-                    <p>Portal corporativo proprietário. Desenvolvido com infraestrutura N3, design de alta performance e assistente de Inteligência Artificial nativo.</p>
+                    <h4>GonçalesTech <span style="font-size:0.7rem; background:var(--primary); color:#000; padding:3px 8px; border-radius:4px; margin-left:8px; vertical-align:middle; font-weight:bold;">IA Integrada</span></h4>
+                    <p>Portal corporativo proprietário com assistente de Inteligência Artificial nativo, infraestrutura N3 e design de alta performance.</p>
+                    <span class="project-tag"><i class="bi bi-cpu"></i> IA</span>
+                    <span class="project-tag"><i class="bi bi-shield-check"></i> N3</span>
                 </div>
             </a>
 
+            <!-- SAMS Imóveis — NOVO -->
+            <a href="https://www.lourivalsamsimoveis.com.br/" target="_blank" class="project-card">
+                <div class="project-img">
+                    <div class="img-loading" id="loading-sams">
+                        <i class="bi bi-hourglass-split"></i>
+                        <span>Carregando preview...</span>
+                    </div>
+                    <img src="https://s0.wp.com/mshots/v1/https://www.lourivalsamsimoveis.com.br?w=600"
+                         alt="SAMS Imóveis"
+                         onload="document.getElementById('loading-sams').style.display='none'"
+                         onerror="document.getElementById('loading-sams').innerHTML='<i class=\'bi bi-house-door\' style=\'font-size:3rem; color:var(--secondary)\'></i><span>Portal SAMS Imóveis</span>'">
+                </div>
+                <div class="project-info">
+                    <h4>SAMS Imóveis</h4>
+                    <p>Portal comunitário do corretor Lourival Sampaio — imóveis, empregos, agenda do CRAS, horários de ônibus e podcast integrados via Google Sheets.</p>
+                    <span class="project-tag"><i class="bi bi-house-door"></i> Imóveis</span>
+                    <span class="project-tag"><i class="bi bi-table"></i> Google Sheets</span>
+                    <span class="project-tag"><i class="bi bi-people"></i> Comunidade</span>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> lourivalsamsimoveis.com.br</div>
+                </div>
+            </a>
+
+            <!-- L&L Ar Condicionado — NOVO -->
+            <a href="https://l-l-arcondicionado.vercel.app/" target="_blank" class="project-card">
+                <div class="project-img">
+                    <div class="img-loading" id="loading-ll">
+                        <i class="bi bi-hourglass-split"></i>
+                        <span>Carregando preview...</span>
+                    </div>
+                    <img src="https://s0.wp.com/mshots/v1/https://l-l-arcondicionado.vercel.app?w=600"
+                         alt="L&L Ar Condicionado"
+                         onload="document.getElementById('loading-ll').style.display='none'"
+                         onerror="document.getElementById('loading-ll').innerHTML='<i class=\'bi bi-wind\' style=\'font-size:3rem; color:var(--secondary)\'></i><span>L&amp;L Ar Condicionado</span>'">
+                </div>
+                <div class="project-info">
+                    <h4>L&L Ar Condicionado</h4>
+                    <p>Site institucional de alta conversão para empresa de climatização em Sorocaba. Hero com vídeo, portfólio misto, depoimentos reais do Google e SEO local.</p>
+                    <span class="project-tag"><i class="bi bi-thermometer-sun"></i> HVAC</span>
+                    <span class="project-tag"><i class="bi bi-star-fill"></i> Google 4,9</span>
+                    <span class="project-tag"><i class="bi bi-geo-alt"></i> Sorocaba</span>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> l-l-arcondicionado.vercel.app</div>
+                </div>
+            </a>
+
+            <!-- Auto RG4 -->
             <a href="https://www.autorg4.com.br/" target="_blank" class="project-card">
-                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Auto RG4"></div>
-                <div class="project-info"><h4>Auto RG4</h4><p>Site institucional focado em captação de leads automotivos.</p></div>
+                <div class="project-img">
+                    <img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Auto RG4">
+                </div>
+                <div class="project-info">
+                    <h4>Auto RG4</h4>
+                    <p>Site institucional focado em captação de leads automotivos.</p>
+                    <span class="project-tag"><i class="bi bi-car-front"></i> Automotivo</span>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> autorg4.com.br</div>
+                </div>
             </a>
-            
+
+            <!-- SOS Inglês US -->
             <a href="https://www.sosinglesus.com.br/" target="_blank" class="project-card">
-                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="SOS Inglês US"></div>
-                <div class="project-info"><h4>SOS Inglês US</h4><p>Plataforma moderna de conversão para ensino de idiomas.</p></div>
+                <div class="project-img">
+                    <img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="SOS Inglês US">
+                </div>
+                <div class="project-info">
+                    <h4>SOS Inglês US</h4>
+                    <p>Plataforma moderna de conversão para ensino de idiomas.</p>
+                    <span class="project-tag"><i class="bi bi-translate"></i> Educação</span>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> sosinglesus.com.br</div>
+                </div>
             </a>
-            
+
+            <!-- Votofrio -->
             <a href="https://www.votofrio.com.br/" target="_blank" class="project-card">
-                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Votofrio"></div>
-                <div class="project-info"><h4>Votofrio</h4><p>Website para serviços de climatização e refrigeração.</p></div>
+                <div class="project-img">
+                    <img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Votofrio">
+                </div>
+                <div class="project-info">
+                    <h4>Votofrio</h4>
+                    <p>Website para serviços de climatização e refrigeração.</p>
+                    <span class="project-tag"><i class="bi bi-snow"></i> Climatização</span>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> votofrio.com.br</div>
+                </div>
             </a>
-            
+
         </div>
     </section>
 
+    <!-- CONTATO -->
     <section id="contato" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="section-title"><h2>Fale Conosco</h2></div>
+            <div class="section-title"><h2>Fale <span>Conosco</span></h2></div>
             <div class="contact-grid">
                 <div class="contact-form">
-                    <div class="form-group"><label>Seu Nome</label><input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales"></div>
-                    <div class="form-group"><label>WhatsApp</label><input type="text" id="form-tel" placeholder="(15) 99999-9999"></div>
-                    <div class="form-group"><label>Descreva seu projeto</label><textarea id="form-msg" rows="4" placeholder="Como podemos ajudar?"></textarea></div>
-                    <button class="cta-button" style="width: 100%;" onclick="alert('Funcionalidade visual. Conectaremos ao Make na próxima fase!')">Enviar Mensagem</button>
+                    <!-- Web3Forms — substitua YOUR_ACCESS_KEY pela chave recebida no e-mail -->
+                    <input type="hidden" name="access_key" id="web3forms-key" value="2ec2a4bf-985b-4957-af5d-1f5b5a879e72">
+                    <div class="form-feedback" id="form-feedback"></div>
+                    <div class="form-group">
+                        <label>Seu Nome</label>
+                        <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" id="form-tel" placeholder="(15) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label>Descreva seu projeto</label>
+                        <textarea id="form-msg" rows="4" placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+                    <button class="cta-button" style="width:100%;" id="btn-enviar" onclick="enviarFormulario()">
+                        Enviar Mensagem
+                    </button>
                 </div>
                 <div class="map-wrapper">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117185.80783321588!2d-47.52554749454157!3d-23.56619098717596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58ab8b8577383%3A0x63339097782bcfbc!2sVotorantim%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713800000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -291,17 +422,38 @@
                     <a href="https://www.instagram.com/fgoncalestech?igsh=OGRpdDh5dnZsZHlo" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-col"><h4>Serviços</h4><ul><li>Criação de Sites</li><li>Pós-Produção</li><li>Infra TI N3</li></ul></div>
-            <div class="footer-col"><h4>Empresa</h4><ul><li>Especialista</li><li>Cases</li><li>Contato</li></ul></div>
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#servicos">Criação de Sites</a></li>
+                    <li><a href="#servicos">Pós-Produção</a></li>
+                    <li><a href="#servicos">Infra TI N3</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#sobre">Especialista</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
             <div class="footer-col contact-col">
                 <h4>Contato</h4>
-                <ul><li>Votorantim, SP</li><li>flaviogoncales26@gmail.com</li><li>(15) 99757-1977</li></ul>
-                <div class="support-badge">Suporte N3 Ativo</div>
+                <ul>
+                    <li><i class="bi bi-geo-alt-fill"></i> Votorantim, SP</li>
+                    <li><i class="bi bi-envelope-fill"></i> flaviogoncales26@gmail.com</li>
+                    <li><i class="bi bi-whatsapp"></i> (15) 99757-1977</li>
+                </ul>
+                <div class="support-badge"><i class="bi bi-shield-check"></i> Suporte N3 Ativo</div>
             </div>
         </div>
-        <div class="footer-bottom"><p>© 2026 65.611.420 FLAVIO GONCALES. CNPJ: 65.611.420/0001-50</p></div>
+        <div class="footer-bottom">
+            <p>© 2026 65.611.420 FLAVIO GONCALES. CNPJ: 65.611.420/0001-50</p>
+        </div>
     </footer>
 
+    <!-- CHATBOT -->
     <div id="chat-widget">
         <div class="chat-header">
             <span>Assistente Especialista FG</span>
@@ -315,7 +467,7 @@
         </div>
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Digite sua dúvida...">
-            <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px;"><i class="bi bi-send-fill"></i></button>
+            <button onclick="sendChatMessage()" style="background:var(--primary); border:none; padding:10px 15px; border-radius:5px; cursor:pointer;"><i class="bi bi-send-fill"></i></button>
         </div>
     </div>
 
@@ -325,6 +477,7 @@
     <script>
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
+        // ── CHATBOT ──
         function toggleChat() {
             const chat = document.getElementById('chat-widget');
             if (chat.style.display === 'flex' && !chat.classList.contains('chat-minimized')) {
@@ -334,60 +487,95 @@
                 chat.classList.remove('chat-minimized');
             }
         }
-
         function minimizeChat() { document.getElementById('chat-widget').classList.toggle('chat-minimized'); }
-        function closeChat() { 
+        function closeChat() {
             const chat = document.getElementById('chat-widget');
             chat.style.display = 'none';
             chat.classList.remove('chat-minimized');
         }
 
         async function sendChatMessage() {
-            const input = document.getElementById('user-input');
+            const input   = document.getElementById('user-input');
             const chatBox = document.getElementById('chat-box');
-            const msg = input.value.trim();
-
-            if(!msg) return;
-
+            const msg     = input.value.trim();
+            if (!msg) return;
             chatBox.innerHTML += `<div class="message user">${msg}</div>`;
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
-
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 60000); 
-
+            const timeoutId  = setTimeout(() => controller.abort(), 60000);
             try {
                 const response = await fetch(webHookUrl, {
                     method: 'POST',
                     body: JSON.stringify({ message: msg }),
                     signal: controller.signal
                 });
-
                 clearTimeout(timeoutId);
-
-                if(response.ok) {
-                    const data = await response.text(); 
-                    
-                    let cleanData = data.replace(/^"|"$/g, '').trim();
-
-                    if(cleanData && cleanData !== "Accepted") {
-                        chatBox.innerHTML += `<div class="message bot">${cleanData}</div>`;
-                    } else {
-                        chatBox.innerHTML += `<div class="message bot">Recebi sua mensagem! O Flávio já foi notificado no Telegram.</div>`;
-                    }
-                } else {
-                    throw new Error("Status de resposta não ok");
-                }
+                if (response.ok) {
+                    const data      = await response.text();
+                    const cleanData = data.replace(/^"|"$/g, '').trim();
+                    chatBox.innerHTML += cleanData && cleanData !== "Accepted"
+                        ? `<div class="message bot">${cleanData}</div>`
+                        : `<div class="message bot">Recebi sua mensagem! O Flávio já foi notificado no Telegram.</div>`;
+                } else { throw new Error("Status não ok"); }
             } catch (error) {
-                console.error("Erro detalhado:", error);
-                chatBox.innerHTML += `<div class="message bot" style="color: #ffaa00;">Sistema em processamento. Tente enviar novamente ou chame no WhatsApp abaixo.</div>`;
+                chatBox.innerHTML += `<div class="message bot" style="color:#ffaa00;">Sistema em processamento. Tente novamente ou chame no WhatsApp abaixo.</div>`;
             }
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        document.getElementById('user-input').addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') sendChatMessage();
+        document.getElementById('user-input').addEventListener('keypress', e => {
+            if (e.key === 'Enter') sendChatMessage();
         });
+
+        // ── FORMULÁRIO WEB3FORMS ──
+        async function enviarFormulario() {
+            const nome  = document.getElementById('form-nome').value.trim();
+            const tel   = document.getElementById('form-tel').value.trim();
+            const msg   = document.getElementById('form-msg').value.trim();
+            const key   = document.getElementById('web3forms-key').value;
+            const feedback = document.getElementById('form-feedback');
+            const btn   = document.getElementById('btn-enviar');
+
+            if (!nome || !tel || !msg) {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Preencha todos os campos antes de enviar.';
+                feedback.style.display = 'block';
+                return;
+            }
+
+            btn.textContent = 'Enviando...';
+            btn.disabled    = true;
+            feedback.style.display = 'none';
+
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: key,
+                        subject: `Novo contato via GonçalesTech — ${nome}`,
+                        from_name: 'GonçalesTech Site',
+                        nome, whatsapp: tel, mensagem: msg
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    feedback.className = 'form-feedback success';
+                    feedback.textContent = 'Mensagem enviada! Flávio entrará em contato em breve.';
+                    document.getElementById('form-nome').value = '';
+                    document.getElementById('form-tel').value  = '';
+                    document.getElementById('form-msg').value  = '';
+                } else { throw new Error('Erro Web3Forms'); }
+            } catch(e) {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Erro ao enviar. Chame diretamente no WhatsApp.';
+            }
+
+            feedback.style.display = 'block';
+            btn.textContent = 'Enviar Mensagem';
+            btn.disabled    = false;
+        }
     </script>
 </body>
 </html>
