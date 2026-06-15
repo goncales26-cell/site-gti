@@ -25,7 +25,6 @@
 
     <link rel="icon" href="https://www.goncalestech.com.br/logo_fg.png" type="image/png">
 
-    <!-- Schema.org Person + LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -80,7 +79,6 @@
         body { background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* HEADER */
         header { background-color: rgba(5,5,5,0.95); border-bottom: 1px solid #333; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
         .navbar { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 15px; }
@@ -92,7 +90,6 @@
         .nav-menu a { font-size: 0.9rem; font-weight: 500; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* HERO */
         .hero-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.3; }
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 20px; }
@@ -102,13 +99,11 @@
         .cta-button { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
         .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,127,0.4); }
 
-        /* SEÇÕES */
         section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.5rem; color: var(--secondary); }
         .section-title h2 span { color: var(--text-main); }
 
-        /* SOBRE */
         .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
         .about-visual { border: 2px solid var(--secondary); border-radius: 8px; background: var(--panel-bg); overflow: hidden; max-width: 380px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
         .about-img { width: 100%; height: 100%; object-fit: contain; }
@@ -117,7 +112,6 @@
         .badge-container { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
         .badge { background: rgba(0,255,127,0.1); color: var(--primary); padding: 6px 15px; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(0,255,127,0.2); }
 
-        /* SERVIÇOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .service-card:hover { border-color: var(--primary); transform: translateY(-10px); }
@@ -125,7 +119,6 @@
         .service-card h4 { margin-bottom: 15px; font-size: 1.4rem; color: var(--secondary); }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* PROJETOS */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { background: var(--panel-bg); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; display: block; text-decoration: none; color: inherit; }
         .project-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,255,127,0.1); }
@@ -140,7 +133,6 @@
         .project-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; background: rgba(0,255,127,0.1); color: var(--primary); padding: 3px 10px; border-radius: 4px; border: 1px solid rgba(0,255,127,0.2); margin-right: 6px; margin-bottom: 6px; }
         .project-link { font-size: 0.85rem; color: var(--secondary); font-weight: bold; display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; }
 
-        /* CONTATO */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
         .contact-form { background: var(--panel-bg); padding: 40px; border-radius: 12px; border: 1px solid #222; }
         .form-group { margin-bottom: 20px; }
@@ -152,7 +144,6 @@
         .form-feedback.error { background: rgba(255,80,80,0.1); color: #ff5050; border: 1px solid rgba(255,80,80,0.3); }
         .map-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #333; height: 100%; min-height: 400px; }
 
-        /* FOOTER */
         .site-footer { background: #050505; padding: 80px 20px 30px; border-top: 1px solid #111; margin-top: 60px; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; text-align: left; }
         .footer-col h4 { color: var(--text-main); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -170,7 +161,6 @@
         .footer-bottom { text-align: center; padding-top: 30px; margin-top: 50px; border-top: 1px solid #111; }
         .footer-bottom p { color: #444; font-size: 0.85rem; }
 
-        /* CHATBOT */
         #chat-widget { position: fixed; bottom: 105px; right: 30px; width: 350px; height: 480px; background: var(--panel-bg); border: 1px solid var(--secondary); border-radius: 15px; display: none; flex-direction: column; z-index: 2000; box-shadow: 0 15px 40px rgba(0,0,0,0.8); transition: height 0.3s ease; overflow: hidden; }
         .chat-header { background: var(--secondary); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-radius: 14px 14px 0 0; }
         .chat-controls { display: flex; gap: 15px; align-items: center; }
@@ -277,16 +267,12 @@
         </div>
     </section>
 
-    <!-- PROJETOS -->
     <section id="projetos">
         <div class="section-title"><h2>Projetos <span>Desenvolvidos</span></h2></div>
         <div class="projects-grid">
 
-            <!-- GonçalesTech — destaque -->
             <a href="#home" class="project-card" style="border-color: var(--primary); box-shadow: 0 0 15px rgba(0,255,127,0.15);">
-                <div class="project-img">
-                    <img src="./capa-site.jpg" alt="GonçalesTech">
-                </div>
+                <div class="project-img"><img src="./capa-site.jpg" alt="GonçalesTech"></div>
                 <div class="project-info">
                     <h4>GonçalesTech <span style="font-size:0.7rem; background:var(--primary); color:#000; padding:3px 8px; border-radius:4px; margin-left:8px; vertical-align:middle; font-weight:bold;">IA Integrada</span></h4>
                     <p>Portal corporativo proprietário com assistente de Inteligência Artificial nativo, infraestrutura N3 e design de alta performance.</p>
@@ -295,17 +281,12 @@
                 </div>
             </a>
 
-            <!-- SAMS Imóveis — NOVO -->
             <a href="https://www.lourivalsamsimoveis.com.br/" target="_blank" class="project-card">
                 <div class="project-img">
-                    <div class="img-loading" id="loading-sams">
-                        <i class="bi bi-hourglass-split"></i>
-                        <span>Carregando preview...</span>
-                    </div>
-                    <img src="https://s0.wp.com/mshots/v1/https://www.lourivalsamsimoveis.com.br?w=600"
-                         alt="SAMS Imóveis"
+                    <div class="img-loading" id="loading-sams"><i class="bi bi-hourglass-split"></i><span>Carregando preview...</span></div>
+                    <img src="https://s0.wp.com/mshots/v1/https://www.lourivalsamsimoveis.com.br?w=600" alt="SAMS Imóveis"
                          onload="document.getElementById('loading-sams').style.display='none'"
-                         onerror="document.getElementById('loading-sams').innerHTML='<i class=\'bi bi-house-door\' style=\'font-size:3rem; color:var(--secondary)\'></i><span>Portal SAMS Imóveis</span>'">
+                         onerror="document.getElementById('loading-sams').innerHTML='<i class=\'bi bi-house-door\' style=\'font-size:3rem;color:var(--secondary)\'></i><span>Portal SAMS Imóveis</span>'">
                 </div>
                 <div class="project-info">
                     <h4>SAMS Imóveis</h4>
@@ -317,17 +298,12 @@
                 </div>
             </a>
 
-            <!-- L&L Ar Condicionado — NOVO -->
-            <a href="https://llarcondicionados.com.br/" target="_blank" class="project-card">
+            <a href="https://l-l-arcondicionado.vercel.app/" target="_blank" class="project-card">
                 <div class="project-img">
-                    <div class="img-loading" id="loading-ll">
-                        <i class="bi bi-hourglass-split"></i>
-                        <span>Carregando preview...</span>
-                    </div>
-                    <img src="https://s0.wp.com/mshots/v1/https://l-l-arcondicionado.vercel.app?w=600"
-                         alt="L&L Ar Condicionado"
+                    <div class="img-loading" id="loading-ll"><i class="bi bi-hourglass-split"></i><span>Carregando preview...</span></div>
+                    <img src="https://s0.wp.com/mshots/v1/https://l-l-arcondicionado.vercel.app?w=600" alt="L&L Ar Condicionado"
                          onload="document.getElementById('loading-ll').style.display='none'"
-                         onerror="document.getElementById('loading-ll').innerHTML='<i class=\'bi bi-wind\' style=\'font-size:3rem; color:var(--secondary)\'></i><span>L&amp;L Ar Condicionado</span>'">
+                         onerror="document.getElementById('loading-ll').innerHTML='<i class=\'bi bi-wind\' style=\'font-size:3rem;color:var(--secondary)\'></i><span>L&amp;L Ar Condicionado</span>'">
                 </div>
                 <div class="project-info">
                     <h4>L&L Ar Condicionado</h4>
@@ -335,15 +311,12 @@
                     <span class="project-tag"><i class="bi bi-thermometer-sun"></i> HVAC</span>
                     <span class="project-tag"><i class="bi bi-star-fill"></i> Google 4,9</span>
                     <span class="project-tag"><i class="bi bi-geo-alt"></i> Sorocaba</span>
-                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> llarcondicionados.com.br</div>
+                    <div class="project-link"><i class="bi bi-box-arrow-up-right"></i> l-l-arcondicionado.vercel.app</div>
                 </div>
             </a>
 
-            <!-- Auto RG4 -->
             <a href="https://www.autorg4.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Auto RG4">
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.autorg4.com.br?w=600" alt="Auto RG4"></div>
                 <div class="project-info">
                     <h4>Auto RG4</h4>
                     <p>Site institucional focado em captação de leads automotivos.</p>
@@ -352,11 +325,8 @@
                 </div>
             </a>
 
-            <!-- SOS Inglês US -->
             <a href="https://www.sosinglesus.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="SOS Inglês US">
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.sosinglesus.com.br?w=600" alt="SOS Inglês US"></div>
                 <div class="project-info">
                     <h4>SOS Inglês US</h4>
                     <p>Plataforma moderna de conversão para ensino de idiomas.</p>
@@ -365,11 +335,8 @@
                 </div>
             </a>
 
-            <!-- Votofrio -->
             <a href="https://www.votofrio.com.br/" target="_blank" class="project-card">
-                <div class="project-img">
-                    <img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Votofrio">
-                </div>
+                <div class="project-img"><img src="https://s0.wp.com/mshots/v1/https://www.votofrio.com.br?w=600" alt="Votofrio"></div>
                 <div class="project-info">
                     <h4>Votofrio</h4>
                     <p>Website para serviços de climatização e refrigeração.</p>
@@ -381,22 +348,25 @@
         </div>
     </section>
 
-    <!-- CONTATO -->
     <section id="contato" style="background: var(--panel-bg); max-width: 100%; border-top: 1px solid #222;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="section-title"><h2>Fale <span>Conosco</span></h2></div>
             <div class="contact-grid">
                 <div class="contact-form">
-                    <!-- Web3Forms — substitua YOUR_ACCESS_KEY pela chave recebida no e-mail -->
-                    <input type="hidden" name="access_key" id="web3forms-key" value="2ec2a4bf-985b-4957-af5d-1f5b5a879e72">
                     <div class="form-feedback" id="form-feedback"></div>
                     <div class="form-group">
                         <label>Seu Nome</label>
                         <input type="text" id="form-nome" placeholder="Ex: Isabel Gonçales">
                     </div>
+                    <!-- ✅ E-mail adicionado — obrigatório pelo Web3Forms -->
+                    <div class="form-group">
+                        <label>Seu E-mail</label>
+                        <input type="email" id="form-email" placeholder="seu@email.com.br">
+                    </div>
                     <div class="form-group">
                         <label>WhatsApp</label>
-                        <input type="text" id="form-tel" placeholder="(15) 99999-9999">
+                        <!-- ✅ Máscara de telefone aplicada -->
+                        <input type="text" id="form-tel" placeholder="(15) 99999-9999" maxlength="15" inputmode="numeric">
                     </div>
                     <div class="form-group">
                         <label>Descreva seu projeto</label>
@@ -453,7 +423,6 @@
         </div>
     </footer>
 
-    <!-- CHATBOT -->
     <div id="chat-widget">
         <div class="chat-header">
             <span>Assistente Especialista FG</span>
@@ -477,15 +446,21 @@
     <script>
         const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
 
+        // ── MÁSCARA DE TELEFONE ──
+        document.getElementById('form-tel').addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g, '').substring(0, 11);
+            if (v.length === 0) { e.target.value = ''; return; }
+            if (v.length <= 2)        e.target.value = '(' + v;
+            else if (v.length <= 6)   e.target.value = '(' + v.substring(0,2) + ') ' + v.substring(2);
+            else if (v.length <= 10)  e.target.value = '(' + v.substring(0,2) + ') ' + v.substring(2,6) + '-' + v.substring(6);
+            else                      e.target.value = '(' + v.substring(0,2) + ') ' + v.substring(2,7) + '-' + v.substring(7);
+        });
+
         // ── CHATBOT ──
         function toggleChat() {
             const chat = document.getElementById('chat-widget');
-            if (chat.style.display === 'flex' && !chat.classList.contains('chat-minimized')) {
-                closeChat();
-            } else {
-                chat.style.display = 'flex';
-                chat.classList.remove('chat-minimized');
-            }
+            if (chat.style.display === 'flex' && !chat.classList.contains('chat-minimized')) closeChat();
+            else { chat.style.display = 'flex'; chat.classList.remove('chat-minimized'); }
         }
         function minimizeChat() { document.getElementById('chat-widget').classList.toggle('chat-minimized'); }
         function closeChat() {
@@ -530,16 +505,24 @@
 
         // ── FORMULÁRIO WEB3FORMS ──
         async function enviarFormulario() {
-            const nome  = document.getElementById('form-nome').value.trim();
-            const tel   = document.getElementById('form-tel').value.trim();
-            const msg   = document.getElementById('form-msg').value.trim();
-            const key   = document.getElementById('web3forms-key').value;
+            const nome     = document.getElementById('form-nome').value.trim();
+            const email    = document.getElementById('form-email').value.trim();
+            const tel      = document.getElementById('form-tel').value.trim();
+            const msg      = document.getElementById('form-msg').value.trim();
             const feedback = document.getElementById('form-feedback');
-            const btn   = document.getElementById('btn-enviar');
+            const btn      = document.getElementById('btn-enviar');
 
-            if (!nome || !tel || !msg) {
+            // Validação
+            if (!nome || !email || !tel || !msg) {
                 feedback.className = 'form-feedback error';
                 feedback.textContent = 'Preencha todos os campos antes de enviar.';
+                feedback.style.display = 'block';
+                return;
+            }
+            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!emailValido) {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Digite um e-mail válido.';
                 feedback.style.display = 'block';
                 return;
             }
@@ -553,19 +536,22 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        access_key: key,
+                        access_key: '2ec2a4bf-985b-4957-af5d-1f5b5a879e72',
                         subject: `Novo contato via GonçalesTech — ${nome}`,
-                        from_name: 'GonçalesTech Site',
-                        nome, whatsapp: tel, mensagem: msg
+                        from_name: nome,
+                        email: email,
+                        whatsapp: tel,
+                        mensagem: msg
                     })
                 });
                 const data = await res.json();
                 if (data.success) {
                     feedback.className = 'form-feedback success';
                     feedback.textContent = 'Mensagem enviada! Flávio entrará em contato em breve.';
-                    document.getElementById('form-nome').value = '';
-                    document.getElementById('form-tel').value  = '';
-                    document.getElementById('form-msg').value  = '';
+                    document.getElementById('form-nome').value  = '';
+                    document.getElementById('form-email').value = '';
+                    document.getElementById('form-tel').value   = '';
+                    document.getElementById('form-msg').value   = '';
                 } else { throw new Error('Erro Web3Forms'); }
             } catch(e) {
                 feedback.className = 'form-feedback error';
