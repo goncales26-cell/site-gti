@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>Sistema de Agendamento Online | GonçalesTech</title>
+    <meta name="description" content="Sistema de agendamento online personalizado para o seu negócio. Sem mensalidade de plataforma, com painel administrativo, integração WhatsApp e identidade visual da sua marca. A partir de R$ 1.800.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.goncalestech.com.br/agendamento">
+    <meta property="og:title" content="Sistema de Agendamento Online | GonçalesTech">
+    <meta property="og:description" content="Sistema de agendamento personalizado para o seu negócio. Sem mensalidade de plataforma. A partir de R$ 1.800.">
+    <meta property="og:image" content="https://www.goncalestech.com.br/capa-site.jpg">
+
+    <link rel="icon" href="https://www.goncalestech.com.br/logo_fg.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary: #00ff7f;
+            --secondary: #d4af37;
+            --dark-bg: #050505;
+            --panel-bg: #111111;
+            --card-bg: #161616;
+            --text-main: #ffffff;
+            --text-muted: #a0aabf;
+            --border: #222222;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; scroll-behavior: smooth; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
+        body { background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; height: auto; }
+        h1, h2, h3, h4, p, span, a { overflow-wrap: break-word; word-wrap: break-word; }
+
+        /* ── HEADER ── */
+        header { background: rgba(5,5,5,0.95); border-bottom: 1px solid var(--border); position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .navbar { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .brand img { height: 48px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 12px rgba(0,255,127,0.2); }
+        .brand-title { font-weight: 800; font-size: 1rem; }
+        .brand-sub { font-size: 0.68rem; color: var(--secondary); letter-spacing: 1px; }
+        .btn-nav-header { background: var(--primary); color: #000; padding: 10px 22px; border-radius: 5px; font-weight: 700; font-size: 0.85rem; transition: 0.3s; }
+        .btn-nav-header:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,255,127,0.3); }
+
+        /* ── HERO ── */
+        .hero { padding: 140px 24px 100px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(0,255,127,0.07) 0%, transparent 65%), var(--dark-bg); position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,255,127,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,127,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
+        .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,255,127,0.08); border: 1px solid rgba(0,255,127,0.2); color: var(--primary); padding: 6px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 28px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 36px; }
+        .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: var(--primary); color: #000; padding: 15px 32px; border-radius: 5px; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,255,127,0.3); }
+        .btn-secondary { background: transparent; color: var(--text-main); padding: 15px 32px; border-radius: 5px; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; border: 2px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+
+        /* ── DEMO ── */
+        .demo-bar { background: var(--panel-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 24px; text-align: center; font-size: 0.88rem; color: var(--text-muted); }
+        .demo-bar a { color: var(--primary); font-weight: 600; }
+        .demo-bar a:hover { text-decoration: underline; }
+
+        /* ── SECTIONS ── */
+        .section { padding: 90px 24px; max-width: 1200px; margin: 0 auto; }
+        .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+        .section-title { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
+        .section-title span { color: var(--primary); }
+        .section-sub { color: var(--text-muted); font-size: 1rem; max-width: 600px; }
+
+        /* ── PROBLEMA ── */
+        .problema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+        .problema-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 28px; }
+        .problema-card i { font-size: 1.8rem; color: #ff5050; margin-bottom: 14px; display: block; }
+        .problema-card h4 { font-size: 1.05rem; margin-bottom: 8px; }
+        .problema-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+        /* ── FUNCIONALIDADES ── */
+        .features-bg { background: var(--panel-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 28px; transition: 0.3s; }
+        .feature-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .feature-card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 14px; display: block; }
+        .feature-card h4 { font-size: 1.05rem; color: var(--secondary); margin-bottom: 8px; }
+        .feature-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* ── NICHOS ── */
+        .nichos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-top: 48px; }
+        .nicho-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px 20px; text-align: center; transition: 0.3s; cursor: default; }
+        .nicho-card:hover { border-color: var(--primary); }
+        .nicho-card i { font-size: 2rem; color: var(--primary); margin-bottom: 12px; display: block; }
+        .nicho-card span { font-size: 0.9rem; font-weight: 600; }
+
+        /* ── COMO FUNCIONA ── */
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 48px; position: relative; }
+        .step { text-align: center; }
+        .step-num { width: 60px; height: 60px; background: linear-gradient(135deg, #00cc66, #00ff7f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 900; font-size: 1.4rem; color: #000; box-shadow: 0 6px 20px rgba(0,255,127,0.3); }
+        .step h4 { font-size: 1rem; margin-bottom: 8px; }
+        .step p { font-size: 0.88rem; color: var(--text-muted); }
+
+        /* ── PROVA SOCIAL ── */
+        .prova-bg { background: var(--panel-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .demo-preview { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 720px; margin: 48px auto 0; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .demo-preview-bar { background: #1a1a1a; padding: 12px 16px; display: flex; gap: 8px; align-items: center; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .demo-preview img { width: 100%; display: block; }
+        .demo-preview-placeholder { padding: 60px 40px; text-align: center; }
+        .demo-preview-placeholder i { font-size: 4rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .demo-preview-placeholder p { color: var(--text-muted); margin-bottom: 20px; }
+
+        /* ── PREÇOS ── */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+        .pricing-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 36px 32px; transition: 0.3s; }
+        .pricing-card.destaque { border-color: var(--primary); box-shadow: 0 0 30px rgba(0,255,127,0.1); }
+        .pricing-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .pricing-label.green { color: var(--primary); }
+        .pricing-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+        .pricing-price { font-size: 2.4rem; font-weight: 900; color: var(--primary); margin: 16px 0 4px; line-height: 1; }
+        .pricing-price sup { font-size: 1rem; vertical-align: top; margin-top: 6px; }
+        .pricing-price-note { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 24px; }
+        .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+        .pricing-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-muted); }
+        .pricing-list li i { color: var(--primary); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; }
+        .pricing-badge { display: inline-block; background: rgba(0,255,127,0.1); border: 1px solid rgba(0,255,127,0.3); color: var(--primary); padding: 3px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 20px; }
+        .pricing-obs { font-size: 0.8rem; color: var(--text-muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+
+        /* ── FORMULÁRIO ── */
+        .form-bg { background: var(--panel-bg); border-top: 1px solid var(--border); }
+        .form-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        .contact-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 36px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 0.82rem; color: var(--secondary); font-weight: 600; margin-bottom: 8px; letter-spacing: 0.03em; text-transform: uppercase; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; background: #0a0a0a; border: 1px solid var(--border); color: var(--text-main); padding: 12px 14px; border-radius: 6px; font-size: 0.95rem; outline: none; transition: border-color 0.3s; font-family: inherit; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .form-group select option { background: #111; }
+        .form-feedback { display: none; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; }
+        .form-feedback.success { background: rgba(0,255,127,0.1); color: var(--primary); border: 1px solid rgba(0,255,127,0.3); }
+        .form-feedback.error { background: rgba(255,80,80,0.1); color: #ff5050; border: 1px solid rgba(255,80,80,0.3); }
+        .info-items { display: flex; flex-direction: column; gap: 20px; }
+        .info-item { display: flex; align-items: flex-start; gap: 16px; }
+        .info-icon { width: 44px; height: 44px; background: rgba(0,255,127,0.08); border: 1px solid rgba(0,255,127,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; flex-shrink: 0; }
+        .info-item strong { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 2px; }
+        .info-item span { font-size: 0.88rem; color: var(--text-muted); }
+
+        /* ── FOOTER ── */
+        .lp-footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+        .lp-footer p { color: var(--text-muted); font-size: 0.85rem; }
+        .lp-footer a { color: var(--primary); font-weight: 600; }
+
+        /* ── WA FLOAT ── */
+        .wa-float { position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #25d366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 6px 20px rgba(37,211,102,0.4); z-index: 999; transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1) translateY(-3px); }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .form-wrap { grid-template-columns: 1fr; }
+            .btn-nav-header { display: none; }
+            .hero { padding: 120px 20px 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <a href="https://www.goncalestech.com.br" class="brand">
+                <img src="https://www.goncalestech.com.br/logo_fg.png" alt="GonçalesTech">
+                <div>
+                    <div class="brand-title">GonçalesTech</div>
+                    <div class="brand-sub">TECNOLOGIA E AUDIOVISUAL</div>
+                </div>
+            </a>
+            <a href="#contato" class="btn-nav-header"><i class="bi bi-calendar-check"></i> Solicitar Orçamento</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-tag"><i class="bi bi-calendar-check"></i> Sistema de Agendamento Online</div>
+        <h1>Seu negócio agendando<br>clientes no <span>piloto automático</span></h1>
+        <p>Sistema personalizado com a identidade visual da sua empresa. Sem mensalidade de plataforma, sem pagar por cada cliente novo — é seu para sempre.</p>
+        <div class="hero-ctas">
+            <a href="#contato" class="btn-primary"><i class="bi bi-whatsapp"></i> Quero meu sistema</a>
+            <a href="https://agenda-flora.vercel.app" target="_blank" class="btn-secondary"><i class="bi bi-eye"></i> Ver demonstração</a>
+        </div>
+    </section>
+
+    <!-- DEMO BAR -->
+    <div class="demo-bar">
+        <i class="bi bi-stars" style="color:var(--secondary);"></i>
+        Veja o sistema funcionando ao vivo — <a href="https://agenda-flora.vercel.app" target="_blank">agenda-flora.vercel.app</a>
+        &nbsp;·&nbsp; Sistema real, em produção, atendendo clientes hoje.
+    </div>
+
+    <!-- PROBLEMA -->
+    <div style="background: var(--dark-bg);">
+        <div class="section">
+            <div class="section-label">O problema</div>
+            <h2 class="section-title">Você ainda <span>perde tempo</span> assim?</h2>
+            <p class="section-sub">Empresários de todos os nichos enfrentam os mesmos gargalos no agendamento de clientes.</p>
+            <div class="problema-grid">
+                <div class="problema-card">
+                    <i class="bi bi-chat-dots"></i>
+                    <h4>Agendamento no WhatsApp manual</h4>
+                    <p>Horas do dia respondendo mensagens para confirmar horários — tempo que você poderia usar para atender mais.</p>
+                </div>
+                <div class="problema-card">
+                    <i class="bi bi-x-circle"></i>
+                    <h4>Clientes que somem ou esquecem</h4>
+                    <p>Sem confirmação automatizada, o no-show vira rotina. Horário perdido é dinheiro perdido.</p>
+                </div>
+                <div class="problema-card">
+                    <i class="bi bi-currency-dollar"></i>
+                    <h4>Plataformas que cobram por sempre</h4>
+                    <p>Sistemas prontos cobram mensalidade crescente. Quanto mais você cresce, mais paga — e o sistema nunca é seu.</p>
+                </div>
+                <div class="problema-card">
+                    <i class="bi bi-brush"></i>
+                    <h4>Sem identidade da sua marca</h4>
+                    <p>Templates genéricos que não refletem quem você é. Sua marca merece mais do que uma página com a logo de outra empresa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FUNCIONALIDADES -->
+    <div class="features-bg">
+        <div class="section">
+            <div class="section-label">O que está incluído</div>
+            <h2 class="section-title">Tudo que você precisa,<br><span>nada que não precisa</span></h2>
+            <p class="section-sub">Desenvolvido para ser simples de usar e poderoso o suficiente para o dia a dia do seu negócio.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="bi bi-calendar-week"></i>
+                    <h4>Agenda em tempo real</h4>
+                    <p>Você abre os horários disponíveis e o cliente agenda sozinho — sem precisar trocar mensagem com você.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-phone"></i>
+                    <h4>100% responsivo</h4>
+                    <p>Funciona perfeitamente no celular, tablet e computador. Seus clientes agendam de onde estiverem.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-whatsapp"></i>
+                    <h4>Notificação via WhatsApp</h4>
+                    <p>Você é avisado automaticamente quando alguém agenda ou cancela — com os dados do cliente já formatados.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-gear"></i>
+                    <h4>Painel administrativo</h4>
+                    <p>Visualize todos os agendamentos em um calendário, gerencie clientes e cancele horários em poucos cliques.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-x-circle"></i>
+                    <h4>Cancelamento pelo cliente</h4>
+                    <p>O cliente recebe um link para cancelar o próprio agendamento — sem precisar ligar ou mandar mensagem para você.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-people"></i>
+                    <h4>Atendimentos em grupo</h4>
+                    <p>Suporte para turmas com vagas limitadas — ideal para cursos, workshops e programas em grupo com múltiplas sessões.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-palette"></i>
+                    <h4>Identidade visual da sua marca</h4>
+                    <p>Cores, logo, fontes e linguagem do seu negócio. Seus clientes nunca vão saber que é uma plataforma de terceiro.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="bi bi-shield-check"></i>
+                    <h4>Sem mensalidade de plataforma</h4>
+                    <p>O sistema é seu. Paga uma vez pela implantação e só a manutenção mensal — sem surpresas no boleto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NICHOS -->
+    <div style="background: var(--dark-bg);">
+        <div class="section" style="text-align: center;">
+            <div class="section-label">Para quem é</div>
+            <h2 class="section-title">Funciona para <span>qualquer nicho</span></h2>
+            <p class="section-sub" style="margin: 0 auto;">Se o seu negócio depende de hora marcada, esse sistema foi feito para você.</p>
+            <div class="nichos-grid">
+                <div class="nicho-card"><i class="bi bi-scissors"></i><span>Salões de Beleza</span></div>
+                <div class="nicho-card"><i class="bi bi-heart-pulse"></i><span>Clínicas e Consultórios</span></div>
+                <div class="nicho-card"><i class="bi bi-stars"></i><span>Terapeutas e Coaches</span></div>
+                <div class="nicho-card"><i class="bi bi-music-note-beamed"></i><span>Professores e Instrutores</span></div>
+                <div class="nicho-card"><i class="bi bi-person-workspace"></i><span>Personal Trainers</span></div>
+                <div class="nicho-card"><i class="bi bi-camera"></i><span>Fotógrafos</span></div>
+                <div class="nicho-card"><i class="bi bi-house-door"></i><span>Corretores de Imóveis</span></div>
+                <div class="nicho-card"><i class="bi bi-book"></i><span>Escolas e Cursos</span></div>
+                <div class="nicho-card"><i class="bi bi-truck"></i><span>Oficinas e Serviços</span></div>
+                <div class="nicho-card"><i class="bi bi-droplet"></i><span>Estúdios e Spas</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMO FUNCIONA -->
+    <div class="features-bg">
+        <div class="section" style="text-align: center;">
+            <div class="section-label">Processo</div>
+            <h2 class="section-title">Como funciona <span>do começo ao fim</span></h2>
+            <p class="section-sub" style="margin: 0 auto;">Do pedido ao sistema rodando em produção em poucos dias.</p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Briefing</h4>
+                    <p>Você me conta como funciona o seu negócio, quais serviços oferece e como quer que o agendamento funcione.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>Desenvolvimento</h4>
+                    <p>Desenvolvo o sistema com a identidade visual da sua marca, adaptado ao seu fluxo de trabalho.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Entrega e treino</h4>
+                    <p>Sistema publicado e você aprende a usar o painel administrativo em menos de 30 minutos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Suporte contínuo</h4>
+                    <p>Ajustes, novos serviços, atualizações — tudo incluído na manutenção mensal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROVA SOCIAL -->
+    <div style="background: var(--dark-bg);">
+        <div class="section" style="text-align: center;">
+            <div class="section-label">Caso real</div>
+            <h2 class="section-title">Veja o sistema <span>em produção</span></h2>
+            <p class="section-sub" style="margin: 0 auto;">Desenvolvido para Flora Macêdo, terapeuta holística — o sistema piloto que originou este produto.</p>
+            <div class="demo-preview">
+                <div class="demo-preview-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <span style="margin-left:10px; font-size:0.78rem; color:#666;">agenda-flora.vercel.app</span>
+                </div>
+                <div class="demo-preview-placeholder">
+                    <i class="bi bi-calendar-check"></i>
+                    <p>Sistema de agendamento da Flora Macêdo — Terapias Holísticas<br>Acesse ao vivo para ver tudo funcionando.</p>
+                    <a href="https://agenda-flora.vercel.app" target="_blank" class="btn-primary" style="display: inline-flex; margin: 0 auto;">
+                        <i class="bi bi-box-arrow-up-right"></i> Acessar demonstração
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREÇOS -->
+    <div class="features-bg">
+        <div class="section">
+            <div class="section-label" style="text-align:center;">Investimento</div>
+            <h2 class="section-title" style="text-align:center;">Preço <span>transparente</span></h2>
+            <p class="section-sub" style="margin: 0 auto; text-align:center;">Sem letra miúda. Sem cobrança surpresa. Sem pagar para sempre por algo que nunca é seu.</p>
+            <div class="pricing-grid" style="max-width: 780px; margin: 48px auto 0;">
+
+                <div class="pricing-card">
+                    <div class="pricing-label">Pagamento único</div>
+                    <div class="pricing-name">Implantação</div>
+                    <div class="pricing-price"><sup>R$</sup>1.800</div>
+                    <div class="pricing-price-note">a partir de · parcelável em até 3x sem juros</div>
+                    <ul class="pricing-list">
+                        <li><i class="bi bi-check-lg"></i> Sistema completo personalizado</li>
+                        <li><i class="bi bi-check-lg"></i> Identidade visual da sua marca</li>
+                        <li><i class="bi bi-check-lg"></i> Painel administrativo</li>
+                        <li><i class="bi bi-check-lg"></i> Integração WhatsApp</li>
+                        <li><i class="bi bi-check-lg"></i> Publicação e configuração</li>
+                        <li><i class="bi bi-check-lg"></i> Treinamento de uso incluído</li>
+                    </ul>
+                    <a href="#contato" class="btn-secondary" style="width:100%; justify-content:center;">Solicitar orçamento</a>
+                    <p class="pricing-obs">Valor final varia conforme complexidade do negócio. Solicite um orçamento sem compromisso.</p>
+                </div>
+
+                <div class="pricing-card destaque">
+                    <div class="pricing-badge">Recomendado</div>
+                    <div class="pricing-label green">Recorrente mensal</div>
+                    <div class="pricing-name">Manutenção</div>
+                    <div class="pricing-price"><sup>R$</sup>149</div>
+                    <div class="pricing-price-note">por mês · cancele quando quiser</div>
+                    <ul class="pricing-list">
+                        <li><i class="bi bi-check-lg"></i> Suporte técnico prioritário</li>
+                        <li><i class="bi bi-check-lg"></i> Ajustes e atualizações</li>
+                        <li><i class="bi bi-check-lg"></i> Novos serviços e horários</li>
+                        <li><i class="bi bi-check-lg"></i> Hospedagem inclusa</li>
+                        <li><i class="bi bi-check-lg"></i> Backup e segurança</li>
+                        <li><i class="bi bi-check-lg"></i> Evolução contínua do sistema</li>
+                    </ul>
+                    <a href="#contato" class="btn-primary" style="width:100%; justify-content:center;">Quero contratar</a>
+                    <p class="pricing-obs">Pagamento via PIX ou transferência bancária. Parcelamento em até 3x sem juros disponível.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="form-bg" id="contato">
+        <div class="section">
+            <div class="form-wrap">
+                <div>
+                    <div class="section-label">Fale comigo</div>
+                    <h2 class="section-title">Vamos criar o sistema<br>do <span>seu negócio</span>?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem;">Me conta como funciona o seu negócio e te faço um orçamento personalizado em até 24 horas.</p>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="bi bi-whatsapp"></i></div>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>(15) 99757-1977</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="bi bi-envelope"></i></div>
+                            <div>
+                                <strong>E-mail</strong>
+                                <span>flaviogoncales26@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <strong>Localização</strong>
+                                <span>Votorantim, SP — Atendo todo o Brasil</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="bi bi-clock"></i></div>
+                            <div>
+                                <strong>Retorno</strong>
+                                <span>Orçamento em até 24 horas úteis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <div class="form-feedback" id="form-feedback"></div>
+                    <div class="form-group">
+                        <label>Seu nome</label>
+                        <input type="text" id="f-nome" placeholder="Como posso te chamar?">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" id="f-email" placeholder="seu@email.com.br">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" id="f-tel" placeholder="(00) 99999-9999" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label>Segmento do negócio</label>
+                        <select id="f-segmento">
+                            <option value="">Selecione seu segmento</option>
+                            <option>Salão de Beleza / Estética</option>
+                            <option>Clínica / Consultório</option>
+                            <option>Terapeuta / Coach</option>
+                            <option>Professor / Instrutor</option>
+                            <option>Personal Trainer</option>
+                            <option>Fotógrafo</option>
+                            <option>Corretor de Imóveis</option>
+                            <option>Escola / Curso</option>
+                            <option>Oficina / Serviços</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Conte sobre o seu negócio</label>
+                        <textarea id="f-msg" rows="4" placeholder="Quantos profissionais atendem? Quais serviços oferecem? Como é feito o agendamento hoje?"></textarea>
+                    </div>
+                    <button class="btn-primary" style="width:100%; justify-content:center; border:none; cursor:pointer; font-size:1rem;" id="btn-enviar" onclick="enviarFormulario()">
+                        <i class="bi bi-send"></i> Solicitar orçamento gratuito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="lp-footer">
+        <p>© 2026 <a href="https://www.goncalestech.com.br">GonçalesTech · 65.611.420 FLAVIO GONCALES</a> · Votorantim, SP</p>
+    </footer>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/5515997571977?text=Olá%20Flávio!%20Vi%20a%20página%20do%20sistema%20de%20agendamento%20e%20quero%20saber%20mais." class="wa-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script>
+        // Máscara de telefone
+        document.getElementById('f-tel').addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g,'').substring(0,11);
+            if (!v) { e.target.value=''; return; }
+            if (v.length<=2) e.target.value='('+v;
+            else if (v.length<=6) e.target.value='('+v.substring(0,2)+') '+v.substring(2);
+            else if (v.length<=10) e.target.value='('+v.substring(0,2)+') '+v.substring(2,6)+'-'+v.substring(6);
+            else e.target.value='('+v.substring(0,2)+') '+v.substring(2,7)+'-'+v.substring(7);
+        });
+
+        async function enviarFormulario() {
+            const nome      = document.getElementById('f-nome').value.trim();
+            const email     = document.getElementById('f-email').value.trim();
+            const tel       = document.getElementById('f-tel').value.trim();
+            const segmento  = document.getElementById('f-segmento').value;
+            const msg       = document.getElementById('f-msg').value.trim();
+            const feedback  = document.getElementById('form-feedback');
+            const btn       = document.getElementById('btn-enviar');
+
+            if (!nome || !email || !tel || !segmento) {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Preencha todos os campos obrigatórios.';
+                feedback.style.display = 'block';
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Digite um e-mail válido.';
+                feedback.style.display = 'block';
+                return;
+            }
+
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+            feedback.style.display = 'none';
+
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: '2ec2a4bf-985b-4957-af5d-1f5b5a879e72',
+                        subject: `[Sistema de Agendamento] Interesse de ${nome} — ${segmento}`,
+                        from_name: nome,
+                        email,
+                        whatsapp: tel,
+                        segmento,
+                        mensagem: msg || 'Não informada'
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    feedback.className = 'form-feedback success';
+                    feedback.textContent = 'Mensagem enviada! Te retorno em até 24 horas.';
+                    ['f-nome','f-email','f-tel','f-msg'].forEach(id => document.getElementById(id).value = '');
+                    document.getElementById('f-segmento').value = '';
+                } else throw new Error();
+            } catch {
+                feedback.className = 'form-feedback error';
+                feedback.textContent = 'Erro ao enviar. Chame diretamente no WhatsApp.';
+            }
+
+            feedback.style.display = 'block';
+            btn.innerHTML = '<i class="bi bi-send"></i> Solicitar orçamento gratuito';
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
