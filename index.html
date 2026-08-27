@@ -11,6 +11,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.goncalestech.com.br/">
+    <link rel="canonical" href="https://www.goncalestech.com.br/">
     <meta property="og:title" content="GonçalesTech | Tecnologia e Audiovisual N3">
     <meta property="og:description" content="Transforme o seu negócio com sites de alta conversão, automação e suporte técnico especializado N3.">
     <meta property="og:image" content="https://www.goncalestech.com.br/capa-site.jpg">
@@ -582,8 +583,14 @@
 
             // Indicador de digitando...
             const typingId = 'typing-' + Date.now();
-            chatBox.innerHTML += `<div class="message bot" id="${typingId}" style="opacity:0.5;">...</div>`;
+            chatBox.innerHTML += `<div class="message bot" id="${typingId}" style="opacity:0.7;">Digitando...</div>`;
             chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Se a resposta demorar, tranquiliza o usuário em vez de deixar só "..." parado
+            const reassureTimeout = setTimeout(() => {
+                const el = document.getElementById(typingId);
+                if (el) el.textContent = 'Ainda buscando a melhor resposta, só mais alguns segundos...';
+            }, 6000);
 
             const controller = new AbortController();
             const timeoutId  = setTimeout(() => controller.abort(), 60000);
@@ -604,6 +611,7 @@
                     signal: controller.signal
                 });
                 clearTimeout(timeoutId);
+                clearTimeout(reassureTimeout);
 
                 // Remove indicador de digitando
                 const typingEl = document.getElementById(typingId);
@@ -624,6 +632,7 @@
                 } else { throw new Error("Status não ok"); }
 
             } catch (error) {
+                clearTimeout(reassureTimeout);
                 const typingEl = document.getElementById(typingId);
                 if (typingEl) typingEl.remove();
                 chatBox.innerHTML += `<div class="message bot" style="color:#ffaa00;">Sistema em processamento. Tente novamente ou chame no WhatsApp abaixo.</div>`;
