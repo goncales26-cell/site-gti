@@ -531,8 +531,6 @@
     <a href="https://wa.me/5515997571977" class="btn-float btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        const webHookUrl = "https://hook.us2.make.com/7rqh9cvudb61jvz74pvj5om8apiqu82g";
-
         // ── MENU HAMBÚRGUER ──
         const mobileBtn = document.getElementById('mobile-btn');
         const navMenu   = document.getElementById('nav-menu');
@@ -601,7 +599,7 @@
                     ? conversationHistory.slice(0, -1).map(h => h.role + ': ' + h.content).join(' | ')
                     : 'Inicio da conversa';
 
-                const response = await fetch(webHookUrl, {
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
